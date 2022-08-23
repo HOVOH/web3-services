@@ -1,0 +1,1 @@
+export const ORACLE_TESTS_BLOCK_NUMBER = 45179716;

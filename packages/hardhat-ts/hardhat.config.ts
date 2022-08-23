@@ -91,6 +91,20 @@ export const config: HardhatUserConfig = {
           },
         },
       },
+      {
+        version: '0.8.12',
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 250,
+          },
+          outputSelection: {
+            '*': {
+              '*': ['storageLayout'],
+            },
+          },
+        },
+      },
     ],
   },
   mocha: {
@@ -132,6 +146,7 @@ export const config: HardhatUserConfig = {
   typechain: {
     outDir: './generated/contract-types',
     discriminateTypes: true,
+    target: 'node_modules/@hovoh/typechain-ethers-multicall',
   },
 };
 export default config;

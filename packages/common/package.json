@@ -11,7 +11,7 @@
   "types": "./src/index.ts",
   "scripts": {
     "contracts:hardhat": "yarn shx rm -rf './src/generated/contracts-types' && yarn shx cp -r '../hardhat-ts/generated/contract-types' './src/generated'",
-    "contracts:external": "yarn shx rm -rf './src/generated/external-contracts' && yarn shx cp -r './scripts/eth-sdk-config.ts.bak' './src/generated/eth-sdk.config.ts' && yarn eth-sdk -p ./src/generated",
+    "contracts:external": "yarn shx rm -rf './src/generated/external-contracts' && yarn typechain",
     "watch": "tsc -w --noEmit",
     "clean": "shx rm -rf ./lib",
     "lint": "eslint --config ./.eslintrc.js --ignore-path ./.eslintignore ./src",
@@ -20,7 +20,8 @@
     "format:check": "yarn prettier -c ./src",
     "dev:link:components": "yalc link eth-components",
     "dev:link:hooks": "yalc link eth-hooks",
-    "dev:unlink": "yalc remove eth-hooks && yalc remove eth-components"
+    "dev:unlink": "yalc remove eth-hooks && yalc remove eth-components",
+    "typechain": "typechain --target=node_modules/@hovoh/typechain-ethers-multicall --out-dir=./src/generated/external-contracts src/generated/abis/**/*.json"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -68,6 +69,7 @@
   },
   "devDependencies": {
     "@dethcrypto/eth-sdk": "0.3.3",
+    "@hovoh/typechain-ethers-multicall": "^10.0.0",
     "@types/node": "^16.11.45",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
@@ -93,6 +95,7 @@
     "shx": "^0.3.4",
     "ts-patch": "^2.0.1",
     "tsconfig-paths": "^4.0.0",
+    "typechain": "^8.1.0",
     "typescript": "^4.7.4",
     "typescript-transform-paths": "^3.3.1",
     "utf-8-validate": "^5.0.9",
