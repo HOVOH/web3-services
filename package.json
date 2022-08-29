@@ -19,32 +19,34 @@
     "start:nextjs": "yarn workspace @scaffold-eth/nextjs-app dev",
     "build:nextjs": "yarn workspace @scaffold-eth/nextjs-app build",
     "@🔖🔖🔖🔖🔖 hardhat 🔖🔖🔖🔖🔖 ": "echo 📖 hardhat commands",
-    "contracts:build": "yarn workspace @scaffold-eth/hardhat compile && yarn workspace @scaffold-eth/common contracts:hardhat && yarn workspace @scaffold-eth/common contracts:external",
-    "contracts:rebuild": "yarn workspace @scaffold-eth/hardhat clean && yarn contracts:build",
-    "contracts:deploy": "yarn workspace @scaffold-eth/hardhat deploy",
-    "chain": "yarn workspace @scaffold-eth/hardhat chain",
+    "contracts:build": "yarn workspace @hovoh/solidity-oracles compile && yarn workspace @scaffold-eth/common contracts:hardhat && yarn workspace @scaffold-eth/common contracts:external",
+    "contracts:rebuild": "yarn workspace @hovoh/solidity-oracles clean && yarn contracts:build",
+    "contracts:deploy": "yarn workspace @hovoh/solidity-oracles deploy",
+    "chain": "yarn workspace @hovoh/solidity-oracles chain",
     "deploy": "yarn contracts:deploy",
     "@🔖🔖🔖🔖🔖 commands 🔖🔖🔖🔖🔖 ": "echo 📖 commands",
-    "hardhat": "yarn workspace @scaffold-eth/hardhat hardhat",
-    "test": "yarn workspace @scaffold-eth/hardhat test",
+    "hardhat": "yarn workspace @hovoh/solidity-oracles hardhat",
+    "test": "yarn workspace @hovoh/solidity-oracles test",
     "@🔖🔖🔖🔖🔖 workspaces 🔖🔖🔖🔖🔖 ": "echo 📖 workspace commands",
-    "w:hardhat": "yarn workspace @scaffold-eth/hardhat",
+    "w:hardhat": "yarn workspace @hovoh/solidity-oracles",
     "w:vite": "yarn workspace @scaffold-eth/vite-app",
     "w:nextjs": "yarn workspace @scaffold-eth/nextjs-app",
     "w:subgraph": "yarn workspace @scaffold-eth/subgraph",
     "@🔖🔖🔖🔖🔖 ethereum helpers 🔖🔖🔖🔖🔖": "echo 📖 ethereum helper commands",
-    "generate": "yarn workspace @scaffold-eth/hardhat generate",
-    "account": "yarn workspace @scaffold-eth/hardhat account",
+    "generate": "yarn workspace @hovoh/solidity-oracles generate",
+    "account": "yarn workspace @hovoh/solidity-oracles account",
     "@🔖🔖🔖🔖🔖 deployment 🔖🔖🔖🔖🔖": "echo 📖 deployment to external services commands",
     "ipfs": "yarn workspace @scaffold-eth/vite-app ipfs",
     "surge": "yarn workspace @scaffold-eth/vite-app surge",
     "s3": "yarn workspace @scaffold-eth/vite-app s3",
     "ship": "yarn workspace @scaffold-eth/vite-app ship",
+    "package:oracle-api": "yarn workspace @hovoh/solidity-oracles compile && yarn workspace @hovoh/solidity-oracles-api build",
+    "package:traderjoe-api": "yarn workspace @hovoh/traderjoe-api build",
     "@🔖🔖🔖🔖🔖 utilities 🔖🔖🔖🔖🔖": "echo 📖 utilities commands",
     "syncpack:fix": "yarn syncpack fix-mismatches",
     "prepare": "husky install",
     "postinstall": "husky install",
-    "lint": "yarn workspace @scaffold-eth/vite-app lint --fix && yarn workspace @scaffold-eth/common lint --fix && yarn workspace @scaffold-eth/hardhat lint --fix && yarn workspace @scaffold-eth/nextjs-app lint --fix",
+    "lint": "yarn workspace @scaffold-eth/vite-app lint --fix && yarn workspace @scaffold-eth/common lint --fix && yarn workspace @hovoh/solidity-oracles lint --fix && yarn workspace @scaffold-eth/nextjs-app lint --fix",
     "@🔖🔖🔖🔖🔖 dev linking with yalc 🔖🔖🔖🔖🔖": "echo 📖 dev tools",
     "dev:link:components": "yarn workspace @scaffold-eth/vite-app dev:link:components && yarn workspace @scaffold-eth/common dev:link:components",
     "dev:link:hooks": "yarn workspace @scaffold-eth/vite-app dev:link:hooks && yarn workspace @scaffold-eth/common dev:link:hooks",
@@ -53,7 +55,8 @@
   "workspaces": {
     "packages": [
       "packages/common",
-      "packages/hardhat-ts",
+      "packages/oracles",
+      "packages/oracles-api",
       "packages/vite-app-ts",
       "packages/next-app-ts",
       "packages/advanced/subgraph",
@@ -64,6 +67,7 @@
   "packageManager": "yarn@3.2.1",
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "dts-cli": "^1.6.0",
     "eslint": "^8.20.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
@@ -87,24 +91,24 @@
       "yarn workspace @scaffold-eth/common format"
     ],
     "packages/hardhat-ts/test/**/*.ts": [
-      "yarn workspace @scaffold-eth/hardhat lint --fix",
-      "yarn workspace @scaffold-eth/hardhat format"
+      "yarn workspace @hovoh/solidity-oracles lint --fix",
+      "yarn workspace @hovoh/solidity-oracles format"
     ],
     "packages/hardhat-ts/helpers/**/*.ts": [
-      "yarn workspace @scaffold-eth/hardhat lint --fix",
-      "yarn workspace @scaffold-eth/hardhat format"
+      "yarn workspace @hovoh/solidity-oracles lint --fix",
+      "yarn workspace @hovoh/solidity-oracles format"
     ],
     "packages/hardhat-ts/tasks/**/*.ts": [
-      "yarn workspace @scaffold-eth/hardhat lint --fix",
-      "yarn workspace @scaffold-eth/hardhat format"
+      "yarn workspace @hovoh/solidity-oracles lint --fix",
+      "yarn workspace @hovoh/solidity-oracles format"
     ],
     "packages/hardhat-ts/deploy/**/*.ts": [
-      "yarn workspace @scaffold-eth/hardhat lint --fix",
-      "yarn workspace @scaffold-eth/hardhat format"
+      "yarn workspace @hovoh/solidity-oracles lint --fix",
+      "yarn workspace @hovoh/solidity-oracles format"
     ],
     "packages/hardhat-ts/**/*.sol": [
-      "yarn workspace @scaffold-eth/hardhat format",
-      "yarn workspace @scaffold-eth/hardhat solhint --fix"
+      "yarn workspace @hovoh/solidity-oracles format",
+      "yarn workspace @hovoh/solidity-oracles solhint --fix"
     ]
   },
   "volta": {

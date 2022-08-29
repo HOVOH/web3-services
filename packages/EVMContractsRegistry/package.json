@@ -1,0 +1,66 @@
+{
+  "name": "@hovoh/evmcontractsregistry",
+  "version": "0.2.6",
+  "license": "MIT",
+  "author": "HOVOH",
+  "main": "dist/index.js",
+  "module": "dist/evmcontractregistry.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "analyze": "size-limit --why",
+    "build": "dts build",
+    "lint": "dts lint",
+    "prepare": "dts build",
+    "size": "size-limit",
+    "start": "dts watch",
+    "test": "dts test",
+    "typechain": "typechain --target node_modules/@hovoh/typechain-ethers-multicall/dist --out-dir ./bindings ./abis/*.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "dts lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "size-limit": [
+    {
+      "path": "dist/evmcontractregistry.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/evmcontractregistry.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@hovoh/typechain-ethers-multicall": "^10.1.2",
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "@tsconfig/recommended": "^1.0.1",
+    "@typechain/ethers-v5": "^10.0.0",
+    "dts-cli": "^1.5.0",
+    "husky": "^7.0.4",
+    "size-limit": "^7.0.8",
+    "tslib": "^2.3.1",
+    "typechain": "^8.0.0",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@hovoh/ethcall": "^9.9.7",
+    "ethers": "^5.7.0"
+  }
+}

@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
+import { createConnectorForExternalContract, createConnectorForHardhatContract } from 'eth-hooks/context';
 import { invariant } from 'ts-invariant';
 
+import { externalContractsAddressMap } from '~common/config/externalContracts.config';
+import { ERC20__factory, RolesLedger__factory } from '~common/generated/contract-types';
+import hardhatDeployedContractsJson from '~common/generated/hardhat_contracts.json';
 /**
  * ⛳️⛳️⛳️⛳️⛳️⛳️⛳️⛳️⛳️⛳️⛳️⛳️⛳️⛳️
  * ### Instructions
@@ -19,12 +23,12 @@ export const appContractsConfig = () => {
       // --------------------------------------------------
       // 🙋🏽‍♂️ Add your hadrdhat contracts here
       // --------------------------------------------------
-      /*      YourContract: createConnectorForHardhatContract(
-        'YourContract',
-        hardhatContracts.YourContract__factory,
+      roles_ledger: createConnectorForHardhatContract(
+        'roles_ledger',
+        RolesLedger__factory,
         hardhatDeployedContractsJson
       ),
-
+      /*
       YourNFT: createConnectorForHardhatContract(
         'YourNFT',
         hardhatContracts.YourNFT__factory,
@@ -33,7 +37,7 @@ export const appContractsConfig = () => {
       // --------------------------------------------------
       // 🙋🏽‍♂️ Add your external contracts here, make sure to define the address in `externalContractsConfig.ts`Í
       // --------------------------------------------------
-      // DAI: createConnectorForExternalContract('DAI', DAI__factory, externalContractsAddressMap),
+      DAI: createConnectorForExternalContract('DAI', ERC20__factory, externalContractsAddressMap),
       // --------------------------------------------------
       // 🙋🏽‍♂️ Add your external abi here (unverified contracts)`
       // --------------------------------------------------

@@ -12,14 +12,16 @@ packages/**/data
 build
 dist
 
-# hardhat ts
-packages/hardhat-ts/cache
-packages/hardhat-ts/generated
-!packages/hardhat-ts/generated/.gitignore
+# oracles
+packages/oracles/cache
+packages/oracles/generated
+!packages/oracles/generated/.gitignore
 cache
 artifacts
 tenderly.yaml
 
+# oracles-api
+packages/oracles-api/generated
 
 # secrets / env
 **/.env.*.local

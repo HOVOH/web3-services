@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+  db:
+    image: timescale/timescaledb:latest-pg14
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}

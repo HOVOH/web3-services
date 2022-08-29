@@ -1,0 +1,66 @@
+{
+  "name": "@hovoh/solidity-oracles-api",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "HOVOH",
+  "main": "dist/index.js",
+  "module": "dist/oracle-api.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "analyze": "size-limit --why",
+    "generate:typings": "typechain --target node_modules/@hovoh/typechain-ethers-multicall --out-dir ./generated './node_modules/@hovoh/solidity-oracles/generated/abi/contracts/**/*.json'",
+    "build": "yarn generate:typings && dts build",
+    "lint": "dts lint",
+    "prepare": "dts build",
+    "size": "size-limit",
+    "start": "dts watch",
+    "test": "dts test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "dts lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "size-limit": [
+    {
+      "path": "dist/oracle-api.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/oracle-api.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@hovoh/typechain-ethers-multicall": "^10.0.0",
+    "@size-limit/preset-small-lib": "^8.0.1",
+    "@tsconfig/recommended": "^1.0.1",
+    "dts-cli": "^1.6.0",
+    "husky": "^8.0.1",
+    "shx": "^0.3.4",
+    "size-limit": "^8.0.1",
+    "tslib": "^2.4.0",
+    "typechain": "^8.1.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@hovoh/evmcontractsregistry": "^0.2.6",
+    "@hovoh/solidity-oracles": "workspace:"
+  }
+}

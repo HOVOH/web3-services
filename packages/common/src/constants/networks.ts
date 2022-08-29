@@ -134,8 +134,8 @@ export const NETWORKS = {
     chainId: 250,
     blockExplorer: 'https://ftmscan.com/',
     // url: `https://rpcapi.fantom.network`,
-    // url: `https://rpc.ftm.tools`,
-    url: `https://rpc.ankr.com/fantom`,
+    url: `https://rpc.ftm.tools`,
+    // url: `https://rpc.ankr.com/fantom`,
     gasPrice: 1000000000,
   },
   testnetFantom: {
