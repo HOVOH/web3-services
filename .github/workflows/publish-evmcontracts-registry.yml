@@ -1,6 +1,8 @@
+name: Publish EVMContractsRegistry
+
 on:
   push:
-    branches: [ release, next ]
+    branches: [ release ]
 
 jobs:
   publish:
@@ -11,6 +13,7 @@ jobs:
         with:
           node-version: 16
       - run: yarn install
+      - run: yarn w:evmcontractsregistry typechain
       - run: yarn w:evmcontractsregistry test
       - run: yarn w:evmcontractsregistry build
       - uses: JS-DevTools/npm-publish@v1
