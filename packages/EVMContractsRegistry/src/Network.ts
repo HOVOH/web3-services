@@ -9,14 +9,14 @@ export enum Network {
   OPTIMISM_KOVAN = 69,
   XDAI = 100,
   POLYGON = 137,
-  OPERA_MAIN_NET = 250,
-  OPERA_TEST_NET = 4002,
+  OPERA_MAINNET = 250,
+  OPERA_TESTNET = 4002,
   HARDHAT = 31337,
   ARBITRUM = 42161,
   AVANLANCHE_FUJI = 43113,
-  AVALANCHE_C_CHAIN = 43114,
+  AVALANCHE_MAINNET = 43114,
   MUMBAI = 80001,
-  ARBITRUM_TEST_NET = 421611,
+  ARBITRUM_TESTNET = 421611,
 }
 
 export const NETWORKS_INFO = {
@@ -92,7 +92,7 @@ export const NETWORKS_INFO = {
   rinkebyArbitrum: {
     name: 'Arbitrum Testnet',
     color: '#50a0ea',
-    chainId: Network.ARBITRUM_TEST_NET,
+    chainId: Network.ARBITRUM_TESTNET,
     blockExplorer: 'https://rinkeby-explorer.arbitrum.io/#/',
     url: `https://rinkeby.arbitrum.io/rpc`,
   },
@@ -129,7 +129,7 @@ export const NETWORKS_INFO = {
   avalanche: {
     name: 'avalanche',
     color: '#666666',
-    chainId: Network.AVALANCHE_C_CHAIN,
+    chainId: Network.AVALANCHE_MAINNET,
     blockExplorer: 'https://cchain.explorer.avax.network/',
     url: `https://api.avax.network/ext/bc/C/rpc`,
     gasPrice: 225000000000,
@@ -137,7 +137,7 @@ export const NETWORKS_INFO = {
   fantom: {
     name: 'fantom',
     color: '#1969ff',
-    chainId: Network.OPERA_MAIN_NET,
+    chainId: Network.OPERA_MAINNET,
     blockExplorer: 'https://ftmscan.com/',
     // url: `https://rpcapi.fantom.network`,
     url: `https://rpc.ftm.tools`,
@@ -147,7 +147,7 @@ export const NETWORKS_INFO = {
   testnetFantom: {
     name: 'testnetFantom',
     color: '#1969ff',
-    chainId: Network.OPERA_TEST_NET,
+    chainId: Network.OPERA_TESTNET,
     blockExplorer: 'https://testnet.ftmscan.com/',
     url: `https://rpc.testnet.fantom.network`,
     gasPrice: 1000000000,

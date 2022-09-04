@@ -6,12 +6,12 @@ export const providers = new ProvidersRegistry();
 // url: `https://rpcapi.fantom.network`
 // url: `https://rpc.ftm.tools`
 // url: `https://rpc.ankr.com/fantom`
-providers.addNetwork(Network.OPERA_MAIN_NET, {
+providers.addNetwork(Network.OPERA_MAINNET, {
   httpRpc: ['https://rpc.ftm.tools'],
   wsRpc: ['wss://wsapi.fantom.network/'],
 });
 
-providers.addNetwork(Network.OPERA_TEST_NET, {
+providers.addNetwork(Network.OPERA_TESTNET, {
   httpRpc: ['https://rpc.testnet.fantom.network/'],
   wsRpc: [],
 });
@@ -31,7 +31,7 @@ providers.addNetwork(Network.MUMBAI, {
   wsRpc: [],
 });
 
-providers.addNetwork(Network.ARBITRUM_TEST_NET, {
+providers.addNetwork(Network.ARBITRUM_TESTNET, {
   httpRpc: [`https://rinkeby.arbitrum.io/rpc`],
   wsRpc: [],
 });
@@ -51,7 +51,7 @@ providers.addNetwork(Network.OPTIMISM_KOVAN, {
   wsRpc: [],
 });
 
-providers.addNetwork(Network.AVALANCHE_C_CHAIN, {
+providers.addNetwork(Network.AVALANCHE_MAINNET, {
   httpRpc: [`https://api.avax.network/ext/bc/C/rpc`],
   wsRpc: [],
 });

@@ -19,8 +19,8 @@ interface ITestRegistry2 {
 }
 
 interface INetworkTestRegistries {
-  [Network.OPERA_MAIN_NET]: ITestRegistry;
-  [Network.OPERA_TEST_NET]: ITestRegistry2;
+  [Network.OPERA_MAINNET]: ITestRegistry;
+  [Network.OPERA_TESTNET]: ITestRegistry2;
 }
 
 const WFTM_ADDRESS = '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83';
@@ -63,8 +63,8 @@ const contracts = new NetworksContractsRegistry<
   INetworkTestRegistries,
   typeof namedFactories
 >();
-contracts.addNetwork(Network.OPERA_TEST_NET, testnetContracts);
-contracts.addNetwork(Network.OPERA_MAIN_NET, mainnetContracts);
+contracts.addNetwork(Network.OPERA_TESTNET, testnetContracts);
+contracts.addNetwork(Network.OPERA_MAINNET, mainnetContracts);
 contracts.setNamedFactories(namedFactories);
 
 describe('ContractFactory', () => {
@@ -79,42 +79,38 @@ describe('ContractFactory', () => {
 
   it('Should return the network contract factory', () => {
     const networkContractFactory = contractFactory.forNetwork(
-      Network.OPERA_MAIN_NET
+      Network.OPERA_MAINNET
     );
     expect(networkContractFactory.networkProvider).not.toBeNull();
   });
 
   it('Should return the contracts properly typed and initialised', async () => {
     const boo = contractFactory
-      .forNetwork(Network.OPERA_MAIN_NET)
+      .forNetwork(Network.OPERA_MAINNET)
       .getContractInstance('BOO');
     expect(await boo.symbol()).toEqual('BOO');
     const token = contractFactory
-      .forNetwork(Network.OPERA_MAIN_NET)
+      .forNetwork(Network.OPERA_MAINNET)
       .getContractInstance('WFTM');
     expect(await token.symbol()).toEqual('WFTM');
-    const wftmTestnet = contractFactory
-      .forNetwork(Network.OPERA_TEST_NET)
-      .getContractInstance('WFTM');
-    expect(await wftmTestnet.symbol()).toEqual('WFTM');
   });
 
   it('Should return the SimpleContract instance', () => {
     const contract = contractFactory
-      .forNetwork(Network.OPERA_MAIN_NET)
+      .forNetwork(Network.OPERA_MAINNET)
       .getContract('WFTM');
     expect(contract.address).toEqual(mainnetContracts.WFTM.latest().address);
   });
 
   it('Should do a multicall from initialised contracts', async () => {
     const boo = contractFactory
-      .forNetwork(Network.OPERA_MAIN_NET)
+      .forNetwork(Network.OPERA_MAINNET)
       .getContractInstance('BOO');
     const wftm = contractFactory
-      .forNetwork(Network.OPERA_MAIN_NET)
+      .forNetwork(Network.OPERA_MAINNET)
       .getContractInstance('WFTM');
     const [wftmSymbol, booSymbol, balance] = await providers
-      .multicallForNetwork(Network.OPERA_MAIN_NET)
+      .multicallForNetwork(Network.OPERA_MAINNET)
       .all([
         wftm.multiCall.symbol(),
         boo.multiCall.symbol(),
@@ -127,7 +123,7 @@ describe('ContractFactory', () => {
 
   it('Should do a multicall from contract name', async () => {
     const [wftmSymbol, booSymbol, balance, erc20symbol] = await contractFactory
-      .forNetwork(Network.OPERA_MAIN_NET)
+      .forNetwork(Network.OPERA_MAINNET)
       .multiCall((getContract) => [
         getContract('WFTM').symbol(),
         getContract('BOO').symbol(),
@@ -145,21 +141,21 @@ describe('ContractFactory', () => {
 
   it('Should let override address', async () => {
     const wftm = contractFactory
-      .forNetwork(Network.OPERA_MAIN_NET)
+      .forNetwork(Network.OPERA_MAINNET)
       .getContractInstance('BOO', WFTM_ADDRESS);
     return expect(await wftm.symbol()).toEqual('WFTM');
   });
 
   it('Should let override address on multicall', async () => {
     const [wftmSymbol] = await contractFactory
-      .forNetwork(Network.OPERA_MAIN_NET)
+      .forNetwork(Network.OPERA_MAINNET)
       .multiCall((getContract) => [getContract('BOO', WFTM_ADDRESS).symbol()]);
     return expect(wftmSymbol).toEqual('WFTM');
   });
 
   it('should make named factories available on all networks', async () => {
     const wftm = contractFactory
-      .forNetwork(Network.OPERA_MAIN_NET)
+      .forNetwork(Network.OPERA_MAINNET)
       .getContractInstance('ERC20', WFTM_ADDRESS);
     const ftmSymbol = await wftm.symbol();
     expect(ftmSymbol).toEqual('WFTM');

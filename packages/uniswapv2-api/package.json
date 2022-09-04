@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "@hovoh/ethcall": "^9.9.8",
-    "@hovoh/evmcontractsregistry": "workspace:^",
+    "@hovoh/evmcontractsregistry": "0.3.0",
     "@uniswap/v2-core": "^1.0.1",
     "ethers": "^5.7.0",
     "typechain": "^8.1.0"

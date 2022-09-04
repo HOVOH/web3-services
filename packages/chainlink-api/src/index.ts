@@ -22,10 +22,18 @@ const proxy = (address: string) => {
 };
 
 const avalancheMainnetContracts = {
-  AVAX: proxy('0x0A77230d17318075983913bC2145DB16C7366156'),
   AAVE: proxy('0x3CA13391E9fb38a75330fb28f8cc2eB3D9ceceED'),
+  AVAX: proxy('0x0A77230d17318075983913bC2145DB16C7366156'),
   BTC: proxy('0x2779D32d5166BAaa2B2b658333bA7e6Ec0C65743'),
   ETH: proxy('0x976B3D034E162d8bD72D6b9C989d545b839003b0'),
+};
+
+const arbitrumMainnetContracts = {
+  AAVE: proxy('0x221912ce795669f628c51c69b7d0873eDA9C03bB'),
+  BNB: proxy('0x6970460aabF80C5BE983C6b74e5D06dEDCA95D4A'),
+  ETH: proxy('0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612'),
+  BTC: proxy('0x6ce185860a4963106506C203335A2910413708e9'),
+  FRAX: proxy('0x0809E3d38d1B4214958faf06D8b1B1a2b73f2ab8'),
 };
 
 const namedFactories = {
@@ -41,6 +49,7 @@ const namedFactories = {
 
 export interface ChainlinkNetworksContractMap {
   [Network.AVALANCHE_C_CHAIN]: typeof avalancheMainnetContracts;
+  [Network.ARBITRUM]: typeof arbitrumMainnetContracts;
   [Network.OPERA_MAIN_NET]: {};
 }
 
@@ -49,6 +58,7 @@ const chainlinkApi = new NetworksContractsRegistry<
   typeof namedFactories
 >();
 chainlinkApi.addNetwork(Network.AVALANCHE_C_CHAIN, avalancheMainnetContracts);
+chainlinkApi.addNetwork(Network.ARBITRUM, arbitrumMainnetContracts);
 chainlinkApi.setNamedFactories(namedFactories);
 
 type ChainlinkApi = ContractFactory<

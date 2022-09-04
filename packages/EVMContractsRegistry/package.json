@@ -1,6 +1,6 @@
 {
   "name": "@hovoh/evmcontractsregistry",
-  "version": "0.2.6",
+  "version": "0.3.0",
   "license": "MIT",
   "author": "HOVOH",
   "main": "dist/index.js",
@@ -49,15 +49,15 @@
   ],
   "devDependencies": {
     "@hovoh/typechain-ethers-multicall": "^10.1.2",
-    "@size-limit/preset-small-lib": "^7.0.8",
+    "@size-limit/preset-small-lib": "^8.0.1",
     "@tsconfig/recommended": "^1.0.1",
-    "@typechain/ethers-v5": "^10.0.0",
-    "dts-cli": "^1.5.0",
-    "husky": "^7.0.4",
-    "size-limit": "^7.0.8",
-    "tslib": "^2.3.1",
-    "typechain": "^8.0.0",
-    "typescript": "^4.6.3"
+    "@typechain/ethers-v5": "^10.1.0",
+    "dts-cli": "^1.6.0",
+    "husky": "^8.0.1",
+    "size-limit": "^8.0.1",
+    "tslib": "^2.4.0",
+    "typechain": "^8.1.0",
+    "typescript": "^4.8.2"
   },
   "dependencies": {
     "@hovoh/ethcall": "^9.9.8",
