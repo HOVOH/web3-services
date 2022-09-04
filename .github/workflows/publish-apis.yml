@@ -5,11 +5,10 @@ on:
     branches: [ release ]
 
 jobs:
-  apis-matrix:
+  publish:
     strategy:
       matrix:
         apis: ["uniswapv2-api"]
-  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
