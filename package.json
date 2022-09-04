@@ -51,8 +51,7 @@
     "dev:link:hooks": "yarn workspace @scaffold-eth/vite-app dev:link:hooks && yarn workspace @scaffold-eth/common dev:link:hooks",
     "dev:unlink": "yarn workspace @scaffold-eth/vite-app dev:unlink && yarn workspace @scaffold-eth/vite-app dev:unlink && yarn workspace @scaffold-eth/common dev:unlink && yarn workspace @scaffold-eth/common dev:unlink"
   },
-  "workspaces": {
-    "packages": [
+  "workspaces": [
       "packages/common",
       "packages/EVMContractsRegistry",
       "packages/oracles",
@@ -62,8 +61,7 @@
       "packages/chainlink-api",
       "packages/monitoring-service",
       "packages/*"
-    ]
-  },
+  ],
   "packageManager": "yarn@3.2.1",
   "devDependencies": {
     "cross-env": "^7.0.3",

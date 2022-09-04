@@ -26,6 +26,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - run: yarn install
+      - run: yarn package:evmcontractsregistry
       - run: yarn w:${{matrix.apis}} test
       - run: yarn w:${{matrix.apis}} build
       - uses: JS-DevTools/npm-publish@v1
