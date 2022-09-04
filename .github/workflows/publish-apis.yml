@@ -8,7 +8,7 @@ jobs:
   publish:
     strategy:
       matrix:
-        apis: ["uniswapv2-api"]
+        apis: ["uniswapv2-api", "chainlink-api"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
