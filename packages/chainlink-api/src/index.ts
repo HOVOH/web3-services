@@ -61,11 +61,11 @@ chainlinkApi.addNetwork(Network.AVALANCHE_C_CHAIN, avalancheMainnetContracts);
 chainlinkApi.addNetwork(Network.ARBITRUM, arbitrumMainnetContracts);
 chainlinkApi.setNamedFactories(namedFactories);
 
-type ChainlinkApi = ContractFactory<
+export type ChainlinkApi = ContractFactory<
   ChainlinkNetworksContractMap,
   typeof namedFactories
 >;
-type ChainlinkNetworks = keyof ChainlinkNetworksContractMap;
+export type ChainlinkNetworks = keyof ChainlinkNetworksContractMap;
 
 export const initChainlinkApi = (
   providers: ProvidersRegistry
@@ -73,9 +73,4 @@ export const initChainlinkApi = (
   return new ContractFactory(providers, chainlinkApi);
 };
 
-export {
-  AggregatorV3Interface,
-  EACAggregatorProxy,
-  ChainlinkApi,
-  ChainlinkNetworks,
-};
+export * from '../generated';

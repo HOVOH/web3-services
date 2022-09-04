@@ -34,5 +34,5 @@ jobs:
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          package: ./packages/{{matrix.apis}}/package.json
+          package: ./packages/${{matrix.apis}}/package.json
           access: 'public'
