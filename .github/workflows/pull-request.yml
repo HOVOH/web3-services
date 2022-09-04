@@ -36,6 +36,7 @@ jobs:
       #     restore-keys: |
       #       ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install --immutable
+      - run: yarn w:oracles generate
       - name: 'Check hardhat compile'
         run: |
           yarn w:oracles compile --force
