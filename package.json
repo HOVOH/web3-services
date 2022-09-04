@@ -57,8 +57,10 @@
       "packages/common",
       "packages/oracles",
       "packages/oracles-api",
-      "packages/vite-app-ts",
-      "packages/next-app-ts",
+      "packages/traderjoe-api",
+      "packages/uniswap-api",
+      "packages/chainlink-api",
+      "packages/monitoring-service",
       "packages/advanced/subgraph",
       "packages/advanced/services/*",
       "packages/*"

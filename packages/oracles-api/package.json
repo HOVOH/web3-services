@@ -48,7 +48,7 @@
     }
   ],
   "devDependencies": {
-    "@hovoh/typechain-ethers-multicall": "^10.0.0",
+    "@hovoh/typechain-ethers-multicall": "^10.1.2",
     "@size-limit/preset-small-lib": "^8.0.1",
     "@tsconfig/recommended": "^1.0.1",
     "dts-cli": "^1.6.0",

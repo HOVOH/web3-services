@@ -17,5 +17,5 @@ export const bindings = <T, S>(
   factory: BindingsFactory<T>,
   multicall: MulticallBindingsFactory<S>
 ) => {
-  return contract('0x0', factory, multicall);
+  return contract('no_deployments', factory, multicall);
 };

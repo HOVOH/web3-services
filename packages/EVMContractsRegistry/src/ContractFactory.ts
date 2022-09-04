@@ -12,6 +12,7 @@ import {
   SimpleContract,
 } from './Contract';
 import { Call, initMulticallProvider } from '@hovoh/ethcall';
+import { add } from 'husky';
 
 export class ContractFactory<T extends INetworksContractMap<T>, F> {
   public readonly providers: ProvidersRegistry;
@@ -132,14 +133,14 @@ export interface IContractFactory<T extends IContractsRegistry<keyof T>> {
     ]
   ): Promise<[T1, T2, T3, T4, T5, T6, T7, T8, T9]>;
 
-  multiCall<K extends keyof T>(
+  multiCall<K extends keyof T, T1>(
     calls: (
       get: (
         contractName: K,
         address?: string
       ) => ReturnType<T[K]['multicallFactory']>
-    ) => Call<any>[]
-  ): Promise<any[]>;
+    ) => Call<T1>[]
+  ): Promise<T1[]>;
 
   getContractVersions<K extends keyof T>(
     contractName: K
@@ -254,11 +255,11 @@ export class NetworkContractFactory<T extends IContractsRegistry<keyof T>> {
     contract: SimpleContract<T, U>,
     address?: string
   ) {
-    const instance = contract.factory(
-      address ?? contract.address,
-      this.networkProvider
-    ) as { multiCall: U } & T;
-    instance.multiCall = this.multiCallInstance(contract);
+    address = address ?? contract.address;
+    const instance = contract.factory(address, this.networkProvider) as {
+      multiCall: U;
+    } & T;
+    instance.multiCall = this.multiCallInstance(contract, address);
     return instance;
   }
 

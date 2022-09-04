@@ -1,42 +1,35 @@
-import {
-  Injectable,
-  OnApplicationBootstrap,
-  OnModuleInit,
-} from '@nestjs/common';
+import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
 import { PriceSource } from './entities/price-source.entity';
 import {
-  IPriceSource,
+  AdapterFactory,
+  IPriceSourceAdapter,
   PriceSourceFactory,
-} from './price-listeners/price-source.factory';
+} from './price-source.factory';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { PriceUpdate } from './events/price-update.event';
-import {
-  ChainlinkPriceSource,
-  PRICE_SOURCE_TYPE_CHAINLINK,
-} from './price-listeners/chainlink-price-listener';
-import { EvmService } from '../evm/evm.service';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ChainlinkService } from '../evm/chainlink.service';
+
+export const DEFAULT_PRIORITY = 100;
 
 @Injectable()
 export class PriceMonitor implements OnApplicationBootstrap {
-  private readonly currentlyMonitored: { [id: number]: IPriceSource };
+  private readonly currentlyMonitored: { [id: number]: IPriceSourceAdapter };
   private sourceFactory: PriceSourceFactory;
+  private lastUpdateCache: { [id: number]: PriceUpdate };
 
   constructor(
     private eventEmitter: EventEmitter2,
-    private evmService: EvmService,
-    private chainlinkService: ChainlinkService,
     @InjectRepository(PriceSource)
     private priceSources: Repository<PriceSource>,
   ) {
     this.currentlyMonitored = {};
     this.sourceFactory = new PriceSourceFactory();
-    this.sourceFactory.addAdapter(
-      PRICE_SOURCE_TYPE_CHAINLINK,
-      (ps) => new ChainlinkPriceSource(ps, chainlinkService),
-    );
+    this.lastUpdateCache = {};
+  }
+
+  addAdapter(identifier: string, factory: AdapterFactory) {
+    this.sourceFactory.addAdapter(identifier, factory);
   }
 
   async monitor(priceSource: PriceSource) {
@@ -49,7 +42,15 @@ export class PriceMonitor implements OnApplicationBootstrap {
   private async startPriceSource(priceSource: PriceSource) {
     const source = this.sourceFactory.buildFor(priceSource);
     await source.start((priceUpdate) => {
-      this.eventEmitter.emit(PriceUpdate.NAME, priceUpdate);
+      const lastUpdate = this.lastUpdateCache[priceUpdate.source.id];
+      if (
+        !lastUpdate ||
+        (!priceUpdate.value.eq(lastUpdate.value) &&
+          priceUpdate.usd_value !== lastUpdate.usd_value)
+      ) {
+        this.eventEmitter.emit(PriceUpdate.NAME, priceUpdate);
+        this.lastUpdateCache[priceUpdate.source.id] = priceUpdate;
+      }
     });
     this.currentlyMonitored[priceSource.id] = source;
   }
@@ -65,5 +66,30 @@ export class PriceMonitor implements OnApplicationBootstrap {
     for (const ps of enabledPriceSources) {
       await this.monitor(ps);
     }
+  }
+
+  async registerPriceSource(priceSource: PriceSource) {
+    try {
+      return await this.priceSources.save(priceSource);
+    } catch (error) {
+      if (!error.message.includes('duplicate')) {
+        console.log(error);
+      }
+    }
+    return await this.getPriceSource(priceSource);
+  }
+
+  async getPriceSource(priceSource: Partial<PriceSource>) {
+    return await this.priceSources.find({
+      where: {
+        address: priceSource.address,
+        chainId: priceSource.chainId,
+        type: priceSource.type,
+        assetId: priceSource.assetId,
+      },
+      order: {
+        priority: 'DESC',
+      },
+    });
   }
 }

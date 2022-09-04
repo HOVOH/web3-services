@@ -5,7 +5,7 @@ import {
   NetworksContractsRegistry,
   providers,
 } from '../src';
-import { ERC20__factory } from '../bindings';
+import { ERC20__factory, ERC721__factory } from '../bindings';
 import { ERC20 } from '../bindings';
 import { ERC20Multicall } from '../bindings/ERC20';
 
@@ -51,6 +51,11 @@ const namedFactories = {
     [{ address: '0x0', deployedAt: 1 }],
     ERC20__factory.connect,
     ERC20__factory.multicall
+  ),
+  ERC721: new ContractVersions(
+    [{ address: '0x0', deployedAt: 1 }],
+    ERC721__factory.connect,
+    ERC721__factory.multicall
   ),
 };
 

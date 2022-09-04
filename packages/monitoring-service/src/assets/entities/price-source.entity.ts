@@ -22,9 +22,7 @@ export class PriceSource {
   })
   address: string;
 
-  @Column({
-    type: 'smallint',
-  })
+  @Column()
   chainId: number;
 
   @Column()
@@ -39,11 +37,17 @@ export class PriceSource {
 
   @OneToOne(() => Asset)
   @JoinColumn()
-  denominator?: Asset;
+  denominator?: Promise<Asset>;
+
+  @Column({ nullable: true })
+  denominatorId?: number;
 
   @Column({ default: 0 })
   priority: number;
 
   @Column({ default: false })
   enabled: boolean;
+
+  @Column({ nullable: true })
+  label?: string;
 }

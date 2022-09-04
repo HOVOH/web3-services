@@ -19,9 +19,7 @@ export class Asset {
   })
   address: string;
 
-  @Column({
-    type: 'smallint',
-  })
+  @Column()
   chainId: number;
 
   @Column({

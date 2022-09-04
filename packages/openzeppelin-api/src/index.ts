@@ -20,6 +20,8 @@ const openzeppelinApi = new NetworksContractsRegistry<
   typeof namedFactories
 >();
 
+openzeppelinApi.setNamedFactories(namedFactories);
+
 type OpenZeppelinAPI = ContractFactory<
   OpenZeppelinNetworks,
   typeof namedFactories

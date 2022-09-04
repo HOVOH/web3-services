@@ -1,13 +1,13 @@
 import { BigNumber } from 'ethers';
-import { PriceSource } from '../entities/price-source.entity';
-import { IPriceSource } from './price-source.factory';
-import { PriceUpdate } from '../events/price-update.event';
+import { PriceSource } from '../../assets/entities/price-source.entity';
+import { IPriceSourceAdapter } from '../../assets/price-source.factory';
+import { PriceUpdate } from '../../assets/events/price-update.event';
 import { AggregatorV3Interface } from '@hovoh/chainlink-api';
-import { ChainlinkService } from '../../evm/chainlink.service';
+import { ChainlinkService } from './chainlink.service';
 
-export const PRICE_SOURCE_TYPE_CHAINLINK = 'price_source_cl';
+export const PRICE_SOURCE_TYPE_CHAINLINK_EVENT = 'price_source_cl_event';
 
-export class ChainlinkPriceSource implements IPriceSource {
+export class ChainlinkPriceSource implements IPriceSourceAdapter {
   private feed: AggregatorV3Interface;
 
   constructor(
@@ -27,9 +27,9 @@ export class ChainlinkPriceSource implements IPriceSource {
     const listener = async (priceUpdate: BigNumber) => {
       const priceUpdateEvent = new PriceUpdate(
         this.priceSource,
+        new Date(),
         priceUpdate,
         priceUpdate.div(100).toNumber(),
-        new Date(),
       );
       eventHandler(priceUpdateEvent);
     };

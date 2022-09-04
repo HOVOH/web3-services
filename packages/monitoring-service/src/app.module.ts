@@ -5,12 +5,13 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AssetsModule } from './assets/assets.module';
+import { EvmModule } from './evm/evm.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     EventEmitterModule.forRoot(),
-    AssetsModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (config: ConfigService) => ({
@@ -26,6 +27,9 @@ import { AssetsModule } from './assets/assets.module';
       }),
       inject: [ConfigService],
     }),
+    ScheduleModule.forRoot(),
+    AssetsModule,
+    EvmModule,
   ],
   controllers: [AppController],
   providers: [AppService],

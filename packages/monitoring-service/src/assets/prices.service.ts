@@ -5,6 +5,8 @@ import { OnEvent } from '@nestjs/event-emitter';
 import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { Asset } from './entities/asset.entity';
 import { PriceSource } from './entities/price-source.entity';
+import { BigNumber } from 'ethers';
+import { parseUnits } from 'ethers/lib/utils';
 
 @Injectable()
 export class Prices {
@@ -16,9 +18,16 @@ export class Prices {
   ) {}
 
   @OnEvent(PriceUpdate.NAME)
-  addPrice(priceUpdate: PriceUpdate) {
-    console.log(priceUpdate.source.id, ':', priceUpdate.usd_value);
-    this.dataSource.query(
+  async addPrice(priceUpdate: PriceUpdate) {
+    if (priceUpdate.usd_value < 0) {
+      const denom = await priceUpdate.source.denominator;
+      const denominatorUsd = await this.getPrice(denom);
+      const usdValue = priceUpdate.value
+        .mul(denominatorUsd)
+        .div(BigNumber.from(10).pow(denom.decimals));
+      priceUpdate.usd_value = usdValue.toNumber();
+    }
+    await this.dataSource.query(
       `INSERT INTO ${this.TABLE_NAME}(price_source_id, at, usd_value, value)
       VALUES (
         ${priceUpdate.source.id}, 
@@ -30,21 +39,29 @@ export class Prices {
     );
   }
 
-  async getPrice(asset: Asset, priceSource?: PriceSource) {
+  async getPrice(
+    asset: Pick<Asset, 'id'>,
+    priceSource?: PriceSource,
+  ): Promise<number> {
     if (!priceSource) {
       priceSource = await this.priceSources
-        .createQueryBuilder()
-        .where('asset_id == :assetId', { assetId: asset.id })
-        .select('usd_value')
-        .orderBy('priority', 'DESC')
-        .limit(1)
-        .getOne();
+        .find({
+          where: {
+            assetId: asset.id,
+          },
+          order: {
+            priority: 'DESC',
+          },
+        })
+        .then((sources) => sources[0]);
     }
-    return this.dataSource.query(`
+    return (
+      await this.dataSource.query(`
       SELECT usd_value FROM ${this.TABLE_NAME} 
-      WHERE price_source_id == ${priceSource.id} 
+      WHERE price_source_id = ${priceSource.id} 
       ORDER BY at DESC 
       LIMIT 1; 
-    `);
+    `)
+    )[0]['usd_value'];
   }
 }
