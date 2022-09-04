@@ -1,7 +1,11 @@
-import { sum } from '../src/index';
+import { Network, providers } from '@hovoh/evmcontractsregistry';
+import { initUniswapAPI } from '../src';
 
-describe('sum', () => {
-  it('adds two numbers together', () => {
-    expect(sum(1, 1)).toEqual(2);
+describe('contract factory', () => {
+  const api = initUniswapAPI(providers);
+
+  it('should return the a pair contract for Arbitrum', function () {
+    const pair = api.forNetwork(Network.ARBITRUM).getContractInstance('Pair');
+    expect(pair.token0).toBeDefined();
   });
 });

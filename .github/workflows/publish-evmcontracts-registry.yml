@@ -12,7 +12,7 @@ jobs:
       - uses: julien-capellari/is-workspace-affected@v1.0
         id: affected
         with:
-          workspace: '@hovoh/evmcontractsregistry'
+          workspace: 'packages/EVMContractsRegistry'
           base: release
       - uses: actions/setup-node@v3
         if: steps.affected.outputs.affected

@@ -1,7 +1,11 @@
-import { sum } from '../src/index';
+import { Network, providers } from '@hovoh/evmcontractsregistry';
+import { initChainlinkApi } from '../src';
 
-describe('sum', () => {
-  it('adds two numbers together', () => {
-    expect(sum(1, 1)).toEqual(2);
+describe('contract factory', () => {
+  const api = initChainlinkApi(providers);
+
+  it('should return the btc proxy contract for Arbitrum', function () {
+    const proxy = api.forNetwork(Network.ARBITRUM).getContractInstance('BTC');
+    expect(proxy.address).toEqual('0x6ce185860a4963106506C203335A2910413708e9');
   });
 });
