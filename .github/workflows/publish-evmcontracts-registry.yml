@@ -24,7 +24,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - run: yarn install
+      - run: yarn install --frozen-lockfile
       - run: yarn w:evmcontractsregistry typechain
       - run: yarn w:evmcontractsregistry test
       - run: yarn w:evmcontractsregistry build

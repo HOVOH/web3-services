@@ -17,22 +17,36 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            package:
+              - 'packages/${{matrix.apis}}/**'
       - name: Get yarn cache directory path
+        if: steps.changes.outputs.package == 'true'
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
       - uses: actions/cache@v3
+        if: steps.changes.outputs.package == 'true'
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - run: yarn install
+      - run: yarn install --frozen-lockfile
+        if: steps.changes.outputs.package == 'true'
       - run: yarn package:evmcontractsregistry
-      - run: yarn install
+        if: steps.changes.outputs.package == 'true'
+      - run: yarn install --frozen-lockfile
+        if: steps.changes.outputs.package == 'true'
       #- run: yarn w:${{matrix.apis}} test --ci
+      #  if: steps.changes.outputs.package == 'true'
       - run: yarn w:${{matrix.apis}} build
+        if: steps.changes.outputs.package == 'true'
       - uses: JS-DevTools/npm-publish@v1
+        if: steps.changes.outputs.package == 'true'
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: ./packages/${{matrix.apis}}/package.json

@@ -1,6 +1,6 @@
 {
   "name": "@hovoh/openzeppelin-api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "author": "HOVOH",
   "main": "dist/index.js",
