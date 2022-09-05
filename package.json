@@ -52,14 +52,6 @@
     "dev:unlink": "yarn workspace @scaffold-eth/vite-app dev:unlink && yarn workspace @scaffold-eth/vite-app dev:unlink && yarn workspace @scaffold-eth/common dev:unlink && yarn workspace @scaffold-eth/common dev:unlink"
   },
   "workspaces": [
-      "packages/common",
-      "packages/EVMContractsRegistry",
-      "packages/oracles",
-      "packages/oracles-api",
-      "packages/traderjoe-api",
-      "packages/uniswap-api",
-      "packages/chainlink-api",
-      "packages/monitoring-service",
       "packages/*"
   ],
   "packageManager": "yarn@3.2.1",

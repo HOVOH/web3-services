@@ -31,9 +31,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "jest": {
-    "testEnvironment": "node"
-  },
   "engines": {
     "node": ">=12"
   },

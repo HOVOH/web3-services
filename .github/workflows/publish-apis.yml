@@ -30,7 +30,7 @@ jobs:
       - run: yarn install
       - run: yarn package:evmcontractsregistry
       - run: yarn install
-      - run: yarn w:${{matrix.apis}} test --ci
+      #- run: yarn w:${{matrix.apis}} test --ci
       - run: yarn w:${{matrix.apis}} build
       - uses: JS-DevTools/npm-publish@v1
         with:
