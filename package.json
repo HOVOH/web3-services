@@ -52,7 +52,7 @@
     "dev:unlink": "yarn workspace @scaffold-eth/vite-app dev:unlink && yarn workspace @scaffold-eth/vite-app dev:unlink && yarn workspace @scaffold-eth/common dev:unlink && yarn workspace @scaffold-eth/common dev:unlink"
   },
   "workspaces": [
-      "packages/*"
+    "packages/*"
   ],
   "packageManager": "yarn@3.2.1",
   "devDependencies": {

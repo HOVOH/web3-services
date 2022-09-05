@@ -22,12 +22,12 @@
     "typeorm": "ts-node ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
-    "@hovoh/chainlink-api": "0.1.0",
+    "@hovoh/chainlink-api": "0.1.1",
     "@hovoh/ethcall": "^9.9.8",
     "@hovoh/evmcontractsregistry": "0.3.0",
-    "@hovoh/openzeppelin-api": "0.1.0",
-    "@hovoh/traderjoe-api": "0.1.0",
-    "@hovoh/uniswapv2-api": "0.1.0",
+    "@hovoh/openzeppelin-api": "0.1.1",
+    "@hovoh/traderjoe-api": "0.1.1",
+    "@hovoh/uniswapv2-api": "0.1.1",
     "@nestjs/common": "^9.0.11",
     "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.11",
