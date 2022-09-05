@@ -111,5 +111,8 @@
   },
   "volta": {
     "node": "16.15.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
