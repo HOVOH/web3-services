@@ -21,6 +21,9 @@
     "start": "dts watch",
     "test": "dts test"
   },
+  "actions": {
+    "trigger": "1"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "dts lint"

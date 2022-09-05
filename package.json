@@ -42,7 +42,7 @@
     "package:evmcontractsregistry": "yarn w:evmcontractsregistry build",
     "package:openzeppelin-api": "yarn w:openzeppelin-api build",
     "@🔖🔖🔖🔖🔖 utilities 🔖🔖🔖🔖🔖": "echo 📖 utilities commands",
-    "syncpack:fix": "yarn syncpack fix-mismatches",
+    "syncpack:fix": "yarn syncpack fix-mismatches && yarn install",
     "prepare": "husky install",
     "postinstall": "husky install",
     "lint": "yarn workspace @scaffold-eth/vite-app lint --fix && yarn workspace @scaffold-eth/common lint --fix && yarn workspace @hovoh/solidity-oracles lint --fix && yarn workspace @scaffold-eth/nextjs-app lint --fix",

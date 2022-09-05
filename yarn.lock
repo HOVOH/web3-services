@@ -3970,7 +3970,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hovoh/openzeppelin-api@0.1.1, @hovoh/openzeppelin-api@workspace:packages/openzeppelin-api":
+"@hovoh/openzeppelin-api@0.1.2, @hovoh/openzeppelin-api@workspace:packages/openzeppelin-api":
   version: 0.0.0-use.local
   resolution: "@hovoh/openzeppelin-api@workspace:packages/openzeppelin-api"
   dependencies:
@@ -4156,7 +4156,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hovoh/uniswapv2-api@0.1.1, @hovoh/uniswapv2-api@workspace:packages/uniswapv2-api":
+"@hovoh/uniswapv2-api@0.1.2, @hovoh/uniswapv2-api@workspace:packages/uniswapv2-api":
   version: 0.0.0-use.local
   resolution: "@hovoh/uniswapv2-api@workspace:packages/uniswapv2-api"
   dependencies:
@@ -19532,9 +19532,9 @@ __metadata:
     "@hovoh/chainlink-api": 0.1.1
     "@hovoh/ethcall": ^9.9.8
     "@hovoh/evmcontractsregistry": 0.3.0
-    "@hovoh/openzeppelin-api": 0.1.1
+    "@hovoh/openzeppelin-api": 0.1.2
     "@hovoh/traderjoe-api": 0.1.1
-    "@hovoh/uniswapv2-api": 0.1.1
+    "@hovoh/uniswapv2-api": 0.1.2
     "@nestjs/cli": ^7.6.0
     "@nestjs/common": ^9.0.11
     "@nestjs/config": ^2.2.0
