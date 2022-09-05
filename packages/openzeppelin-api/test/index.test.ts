@@ -1,7 +1,11 @@
-import { sum } from '../src';
+import { Network, providers } from '@hovoh/evmcontractsregistry';
+import { initOpenZeppelinAPI } from '../src';
 
-describe('sum', () => {
-  it('adds two numbers together', () => {
-    expect(sum(1, 1)).toEqual(2);
+describe('contract factory', () => {
+  const api = initOpenZeppelinAPI(providers);
+
+  it('should return the ERC20 contract', function () {
+    const pair = api.forNetwork(Network.ARBITRUM).getContractInstance('ERC20');
+    expect(pair.symbol).toBeDefined();
   });
 });

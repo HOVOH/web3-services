@@ -48,16 +48,16 @@ const namedFactories = {
 };
 
 export interface ChainlinkNetworksContractMap {
-  [Network.AVALANCHE_C_CHAIN]: typeof avalancheMainnetContracts;
+  [Network.AVALANCHE_MAINNET]: typeof avalancheMainnetContracts;
   [Network.ARBITRUM]: typeof arbitrumMainnetContracts;
-  [Network.OPERA_MAIN_NET]: {};
+  [Network.OPERA_MAINNET]: {};
 }
 
 const chainlinkApi = new NetworksContractsRegistry<
   ChainlinkNetworksContractMap,
   typeof namedFactories
 >();
-chainlinkApi.addNetwork(Network.AVALANCHE_C_CHAIN, avalancheMainnetContracts);
+chainlinkApi.addNetwork(Network.AVALANCHE_MAINNET, avalancheMainnetContracts);
 chainlinkApi.addNetwork(Network.ARBITRUM, arbitrumMainnetContracts);
 chainlinkApi.setNamedFactories(namedFactories);
 

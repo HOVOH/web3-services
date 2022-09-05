@@ -2,6 +2,7 @@ import {
   bindings,
   contract,
   ContractFactory,
+  Network,
   NetworksContractsRegistry,
   ProvidersRegistry,
 } from '@hovoh/evmcontractsregistry';
@@ -86,14 +87,14 @@ const namedFactories = {
 export { JoePair__factory, JoePair, IJoePair } from '../generated';
 
 interface TraderJoeAPI {
-  [42161]: typeof avalancheMainnetContracts;
+  [Network.AVALANCHE_MAINNET]: typeof avalancheMainnetContracts;
 }
 
 const traderJoeApi = new NetworksContractsRegistry<
   TraderJoeAPI,
   typeof namedFactories
 >();
-traderJoeApi.addNetwork(42161, avalancheMainnetContracts);
+traderJoeApi.addNetwork(Network.AVALANCHE_MAINNET, avalancheMainnetContracts);
 traderJoeApi.setNamedFactories(namedFactories);
 
 export const initTraderJoeApi = (
@@ -101,3 +102,5 @@ export const initTraderJoeApi = (
 ): ContractFactory<TraderJoeAPI, typeof namedFactories> => {
   return new ContractFactory(provider, traderJoeApi);
 };
+
+export * from '../generated';

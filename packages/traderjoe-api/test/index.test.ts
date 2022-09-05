@@ -1,7 +1,15 @@
-import { sum } from '../src/index';
+import { Network, providers } from '@hovoh/evmcontractsregistry';
+import { initTraderJoeApi } from '../src';
 
-describe('sum', () => {
-  it('adds two numbers together', () => {
-    expect(sum(1, 1)).toEqual(2);
+describe('contract factory', () => {
+  const api = initTraderJoeApi(providers);
+
+  it('should return the a pair contract for Arbitrum', function () {
+    const router = api
+      .forNetwork(Network.AVALANCHE_MAINNET)
+      .getContractInstance('JoeRouter');
+    expect(router.address).toEqual(
+      '0x60aE616a2155Ee3d9A68541Ba4544862310933d4'
+    );
   });
 });

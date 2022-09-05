@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        apis: ["uniswapv2-api", "chainlink-api"]
+        apis: ["uniswapv2-api", "chainlink-api", "openzeppelin-api", "traderjoe-api"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -29,7 +29,7 @@ jobs:
       - run: yarn install
       - run: yarn package:evmcontractsregistry
       - run: yarn install
-      #- run: yarn w:${{matrix.apis}} test
+      - run: yarn w:${{matrix.apis}} test
       - run: yarn w:${{matrix.apis}} build
       - uses: JS-DevTools/npm-publish@v1
         with:
