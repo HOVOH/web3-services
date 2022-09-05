@@ -127,28 +127,28 @@ export class ChainlinkPollingService
 
   private async registerDefaults() {
     await this.registerFeed(
-      Network.AVALANCHE_C_CHAIN,
-      addresses[Network.AVALANCHE_C_CHAIN].WAVAX,
+      Network.AVALANCHE_MAINNET,
+      addresses[Network.AVALANCHE_MAINNET].WAVAX,
       this.chainlinkService.api
-        .forNetwork(Network.AVALANCHE_C_CHAIN)
+        .forNetwork(Network.AVALANCHE_MAINNET)
         .getContract('AVAX').address,
       DEFAULT_PRIORITY,
       true,
     );
     await this.registerFeed(
-      Network.AVALANCHE_C_CHAIN,
-      addresses[Network.AVALANCHE_C_CHAIN].WBTC,
+      Network.AVALANCHE_MAINNET,
+      addresses[Network.AVALANCHE_MAINNET].WBTC,
       this.chainlinkService.api
-        .forNetwork(Network.AVALANCHE_C_CHAIN)
+        .forNetwork(Network.AVALANCHE_MAINNET)
         .getContract('BTC').address,
       DEFAULT_PRIORITY,
       true,
     );
     await this.registerFeed(
-      Network.AVALANCHE_C_CHAIN,
-      addresses[Network.AVALANCHE_C_CHAIN].WETH,
+      Network.AVALANCHE_MAINNET,
+      addresses[Network.AVALANCHE_MAINNET].WETH,
       this.chainlinkService.api
-        .forNetwork(Network.AVALANCHE_C_CHAIN)
+        .forNetwork(Network.AVALANCHE_MAINNET)
         .getContract('ETH').address,
       DEFAULT_PRIORITY,
       true,

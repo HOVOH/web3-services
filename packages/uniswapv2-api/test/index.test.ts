@@ -1,5 +1,5 @@
 import { Network, providers } from '@hovoh/evmcontractsregistry';
-import { initUniswapAPI } from '../src';
+import { initUniswapAPI, UniswapV2Pair } from '../src';
 
 describe('contract factory', () => {
   const api = initUniswapAPI(providers);

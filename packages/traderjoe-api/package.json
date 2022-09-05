@@ -1,6 +1,6 @@
 {
   "name": "@hovoh/traderjoe-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "author": "HOVOH ",
   "main": "dist/index.js",
@@ -8,7 +8,8 @@
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
-    "src"
+    "src",
+    "generated"
   ],
   "scripts": {
     "analyze": "size-limit --why",

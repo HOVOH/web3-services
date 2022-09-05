@@ -73,7 +73,7 @@ export class AmmService implements OnModuleInit, OnApplicationBootstrap {
 
   async registerDefaults() {
     await this.registerUniV2Pair(
-      Network.AVALANCHE_C_CHAIN,
+      Network.AVALANCHE_MAINNET,
       '0x0c91a070f862666bBcce281346BE45766d874D98',
     );
   }

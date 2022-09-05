@@ -1,8 +1,8 @@
 FROM node:16 AS build
 WORKDIR /usr/src/app
 COPY ./ ./
-RUN npm install
-RUN npm run build
+RUN yarn install
+RUN yarn build
 
 FROM node:16-alpine
 ENV NODE_ENV production

@@ -3,27 +3,21 @@ name: Publish EVMContractsRegistry
 on:
   push:
     branches: [ release ]
+    paths:
+      - "packages/EVMContractsRegistry/**"
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: julien-capellari/is-workspace-affected@v1.0
-        id: affected
-        with:
-          workspace: packages/EVMContractsRegistry
-          base: release
       - uses: actions/setup-node@v3
-        if: steps.affected.outputs.affected
         with:
           node-version: 16
       - name: Get yarn cache directory path
-        if: steps.affected.outputs.affected
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
       - uses: actions/cache@v3
-        if: steps.affected.outputs.affected
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -31,15 +25,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - run: yarn install
-        if: steps.affected.outputs.affected
       - run: yarn w:evmcontractsregistry typechain
-        if: steps.affected.outputs.affected
       - run: yarn w:evmcontractsregistry test
-        if: steps.affected.outputs.affected
       - run: yarn w:evmcontractsregistry build
-        if: steps.affected.outputs.affected
       - uses: JS-DevTools/npm-publish@v1
-        if: steps.affected.outputs.affected
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: ./packages/EVMContractsRegistry/package.json
