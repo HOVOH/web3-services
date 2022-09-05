@@ -1,6 +1,6 @@
 {
   "name": "@hovoh/evmcontractsregistry",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "license": "MIT",
   "author": "HOVOH",
   "main": "dist/index.js",
@@ -48,7 +48,7 @@
     }
   ],
   "devDependencies": {
-    "@hovoh/typechain-ethers-multicall": "^10.1.2",
+    "@hovoh/typechain-ethers-multicall": "^10.1.3",
     "@size-limit/preset-small-lib": "^8.0.1",
     "@tsconfig/recommended": "^1.0.1",
     "@typechain/ethers-v5": "^10.1.0",

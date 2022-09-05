@@ -1,6 +1,6 @@
 {
   "name": "@hovoh/chainlink-api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "author": "HOVOH ",
   "main": "dist/index.js",
@@ -49,7 +49,7 @@
     }
   ],
   "devDependencies": {
-    "@hovoh/typechain-ethers-multicall": "^10.1.2",
+    "@hovoh/typechain-ethers-multicall": "^10.1.3",
     "@size-limit/preset-small-lib": "^8.0.1",
     "@tsconfig/recommended": "^1.0.1",
     "dts-cli": "^1.6.0",
@@ -61,7 +61,7 @@
   "dependencies": {
     "@chainlink/contracts": "^0.4.2",
     "@hovoh/ethcall": "^9.9.8",
-    "@hovoh/evmcontractsregistry": "0.3.0",
+    "@hovoh/evmcontractsregistry": "0.3.1",
     "typechain": "^8.1.0"
   }
 }
