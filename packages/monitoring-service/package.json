@@ -27,7 +27,7 @@
     "@hovoh/chainlink-api": "0.1.2",
     "@hovoh/ethcall": "^9.9.8",
     "@hovoh/evmcontractsregistry": "0.3.1",
-    "@hovoh/olympuspro-api": "workspace:^",
+    "@hovoh/olympuspro-api": "0.1.0",
     "@hovoh/openzeppelin-api": "0.1.3",
     "@hovoh/traderjoe-api": "0.1.2",
     "@hovoh/uniswapv2-api": "0.1.3",
