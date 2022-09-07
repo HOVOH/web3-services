@@ -19,7 +19,7 @@ export class Prices {
 
   @OnEvent(PriceUpdate.NAME)
   async addPrice(priceUpdate: PriceUpdate) {
-    if (priceUpdate.usd_value < 0) {
+    if (!priceUpdate.usd_value || priceUpdate.usd_value < 0) {
       const denom = await priceUpdate.source.denominator;
       const denominatorUsd = await this.getPrice(denom);
       const usdValue = priceUpdate.value
@@ -55,13 +55,16 @@ export class Prices {
         })
         .then((sources) => sources[0]);
     }
-    return (
-      await this.dataSource.query(`
+    const query = await this.dataSource.query(`
       SELECT usd_value FROM ${this.TABLE_NAME} 
       WHERE price_source_id = ${priceSource.id} 
       ORDER BY at DESC 
       LIMIT 1; 
-    `)
-    )[0]['usd_value'];
+    `);
+    const usdPrice = query[0]['usd_value'];
+    if (!usdPrice) {
+      throw new Error('Could not determiner USD price');
+    }
+    return usdPrice;
   }
 }

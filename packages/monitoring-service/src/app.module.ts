@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AssetsModule } from './assets/assets.module';
 import { EvmModule } from './evm/evm.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { OlympusproModule } from './olympuspro/olympuspro.module';
 
 @Module({
   imports: [
@@ -16,7 +17,10 @@ import { ScheduleModule } from '@nestjs/schedule';
       imports: [ConfigModule],
       useFactory: (config: ConfigService) => ({
         type: 'postgres',
-        host: config.get('DB_HOST'),
+        host:
+          config.get('NODE_ENV') === 'production'
+            ? config.get('DB_HOST')
+            : 'localhost',
         port: config.get('DB_PORT'),
         username: config.get('DB_USER'),
         password: config.get('DB_PASSWORD'),
@@ -30,6 +34,7 @@ import { ScheduleModule } from '@nestjs/schedule';
     ScheduleModule.forRoot(),
     AssetsModule,
     EvmModule,
+    OlympusproModule,
   ],
   controllers: [AppController],
   providers: [AppService],

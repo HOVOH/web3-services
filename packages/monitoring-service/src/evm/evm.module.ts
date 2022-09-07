@@ -3,7 +3,7 @@ import { EvmService } from './evm.service';
 import { ChainlinkService } from './chainlink/chainlink.service';
 import { AmmService } from './amm/amm.service';
 import { AssetsModule } from '../assets/assets.module';
-import { ChainlinkPollingService } from './chainlink/ChainlinkPollingService';
+import { ChainlinkPollingService } from './chainlink/chainlink-polling-service';
 
 @Module({
   imports: [AssetsModule],

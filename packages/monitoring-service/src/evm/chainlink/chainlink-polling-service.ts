@@ -15,6 +15,7 @@ import {
 import { Network } from '@hovoh/evmcontractsregistry';
 import { addresses } from '../addresses';
 import { EvmService } from '../evm.service';
+import { PricePollingService } from '../../assets/price-polling.service';
 
 export const PRICE_SOURCE_CHAINLINK_POLLING = 'cl_polling';
 
@@ -25,54 +26,15 @@ interface Feed {
 
 @Injectable()
 export class ChainlinkPollingService
-  implements OnModuleInit, OnApplicationBootstrap
+  extends PricePollingService
+  implements OnApplicationBootstrap
 {
-  feedsPerNetwork: { [chainId: number]: Feed[] };
-
   constructor(
     private chainlinkService: ChainlinkService,
     private evmService: EvmService,
-    private priceMonitor: PriceMonitor,
+    priceMonitor: PriceMonitor,
   ) {
-    this.feedsPerNetwork = [];
-  }
-
-  onModuleInit(): any {
-    this.priceMonitor.addAdapter(PRICE_SOURCE_CHAINLINK_POLLING, (ps) =>
-      this.prepare(ps),
-    );
-  }
-
-  prepare(priceSource: PriceSource): IPriceSourceAdapter {
-    if (priceSource.type !== PRICE_SOURCE_CHAINLINK_POLLING) {
-      throw new Error(
-        `${priceSource.type} cannot be added to chainlink polling`,
-      );
-    }
-    if (!this.feedsPerNetwork[priceSource.chainId]) {
-      this.feedsPerNetwork[priceSource.chainId] = [];
-    }
-    return {
-      start: (eventHandler: (pu: PriceUpdate) => void) =>
-        this.start(priceSource, eventHandler),
-      stop: () => this.stop(priceSource),
-    };
-  }
-
-  async start(
-    priceSource: PriceSource,
-    eventHandler: (pu: PriceUpdate) => void,
-  ) {
-    this.feedsPerNetwork[priceSource.chainId].push({
-      priceSource,
-      eventHandler,
-    });
-  }
-
-  async stop(priceSource: PriceSource) {
-    this.feedsPerNetwork[priceSource.chainId] = this.feedsPerNetwork[
-      priceSource.chainId
-    ].filter((feed) => feed.priceSource.id !== priceSource.id);
+    super(PRICE_SOURCE_CHAINLINK_POLLING, priceMonitor);
   }
 
   @Cron('59 * * * * *')
@@ -150,6 +112,22 @@ export class ChainlinkPollingService
       this.chainlinkService.api
         .forNetwork(Network.AVALANCHE_MAINNET)
         .getContract('ETH').address,
+      DEFAULT_PRIORITY,
+      true,
+    );
+    await this.registerFeed(
+      Network.ARBITRUM,
+      addresses[Network.ARBITRUM].WBTC,
+      this.chainlinkService.api.forNetwork(Network.ARBITRUM).getContract('BTC')
+        .address,
+      DEFAULT_PRIORITY,
+      true,
+    );
+    await this.registerFeed(
+      Network.ARBITRUM,
+      addresses[Network.ARBITRUM].WETH,
+      this.chainlinkService.api.forNetwork(Network.ARBITRUM).getContract('ETH')
+        .address,
       DEFAULT_PRIORITY,
       true,
     );

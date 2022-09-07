@@ -52,6 +52,7 @@ export class AmmService implements OnModuleInit, OnApplicationBootstrap {
     chainId: number,
     pairAddress: string,
     priority = DEFAULT_PRIORITY,
+    enabled = true,
   ) {
     const pair = this.uniLPPair(chainId, pairAddress);
     const [token0Address, token1Address] = await this.evmService
@@ -67,7 +68,8 @@ export class AmmService implements OnModuleInit, OnApplicationBootstrap {
     priceSource.assetId = token0.id;
     priceSource.denominatorId = token1.id;
     priceSource.priority = priority;
-    priceSource.label = `${token1.symbol}/${token0.symbol}`;
+    priceSource.label = `${token0.symbol}/${token1.symbol}`;
+    priceSource.enabled = enabled;
     return await this.monitorService.registerPriceSource(priceSource);
   }
 
