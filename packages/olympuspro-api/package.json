@@ -22,7 +22,7 @@
     "test": "dts test"
   },
   "actions": {
-    "trigger": "1"
+    "trigger": "2"
   },
   "husky": {
     "hooks": {
