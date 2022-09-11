@@ -1,25 +1,20 @@
-import {
-  Injectable,
-  OnApplicationBootstrap,
-  OnModuleInit,
-} from '@nestjs/common';
-import { EvmService } from '../evm.service';
+import { Injectable, OnModuleInit } from '@nestjs/common';
+import { EvmService } from '../evm/evm.service';
 import { initUniswapAPI, UniswapAPI } from '@hovoh/uniswapv2-api';
 import { initTraderJoeApi } from '@hovoh/traderjoe-api';
 import {
   DEFAULT_PRIORITY,
   PriceMonitor,
-} from '../../assets/price-monitor.service';
+} from '../assets/price-monitor.service';
 import {
   PRICE_SOURCE_TYPE_UNILPV2_EVENT,
   UniLPV2PriceListener,
-} from './UniLPV2-price-listener';
-import { PriceSource } from '../../assets/entities/price-source.entity';
-import { AssetService } from '../../assets/asset.service';
+} from './price-listener/UniLPV2-price-listener';
+import { PriceSource } from '../assets/entities/price-source.entity';
 import { Network } from '@hovoh/evmcontractsregistry';
 
 @Injectable()
-export class AmmService implements OnModuleInit, OnApplicationBootstrap {
+export class AmmService implements OnModuleInit {
   uniApi: UniswapAPI;
   traderJoeApie: UniswapAPI;
 
@@ -31,21 +26,18 @@ export class AmmService implements OnModuleInit, OnApplicationBootstrap {
     this.traderJoeApie = initTraderJoeApi(evmService.getProviders());
   }
 
-  uniLPPair(chaindId: number, address: string) {
+  uniV2LPPair(chaindId: number, address: string) {
     return this.uniApi
       .forNetwork(chaindId)
       .getContractInstance('Pair', address);
   }
 
-  onModuleInit(): any {
+  async onModuleInit(): Promise<any> {
     this.monitorService.addAdapter(
       PRICE_SOURCE_TYPE_UNILPV2_EVENT,
       (ps: PriceSource) => new UniLPV2PriceListener(ps, this),
     );
-  }
-
-  onApplicationBootstrap(): any {
-    this.registerDefaults();
+    await this.registerDefaults();
   }
 
   async registerUniV2Pair(
@@ -53,8 +45,8 @@ export class AmmService implements OnModuleInit, OnApplicationBootstrap {
     pairAddress: string,
     priority = DEFAULT_PRIORITY,
     enabled = true,
-  ) {
-    const pair = this.uniLPPair(chainId, pairAddress);
+  ): Promise<PriceSource> {
+    const pair = this.uniV2LPPair(chainId, pairAddress);
     const [token0Address, token1Address] = await this.evmService
       .multicall(chainId)
       .all([pair.multiCall.token0(), pair.multiCall.token1()]);
@@ -70,7 +62,9 @@ export class AmmService implements OnModuleInit, OnApplicationBootstrap {
     priceSource.priority = priority;
     priceSource.label = `${token0.symbol}/${token1.symbol}`;
     priceSource.enabled = enabled;
-    return await this.monitorService.registerPriceSource(priceSource);
+    return (await this.monitorService.registerPriceSource(
+      priceSource,
+    )) as PriceSource;
   }
 
   async registerDefaults() {
@@ -78,5 +72,6 @@ export class AmmService implements OnModuleInit, OnApplicationBootstrap {
       Network.AVALANCHE_MAINNET,
       '0x0c91a070f862666bBcce281346BE45766d874D98',
     );
+    //GMX Arbitrum pair 0x1aEEdD3727A6431b8F070C0aFaA81Cc74f273882
   }
 }

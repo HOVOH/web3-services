@@ -2,7 +2,7 @@ import { BigNumber } from 'ethers';
 import { PriceSource } from '../../assets/entities/price-source.entity';
 import { IPriceSourceAdapter } from '../../assets/price-source.factory';
 import { PriceUpdate } from '../../assets/events/price-update.event';
-import { AmmService } from './amm.service';
+import { AmmService } from '../amm.service';
 import { UniswapV2Pair } from '@hovoh/uniswapv2-api';
 import { Asset } from '../../assets/entities/asset.entity';
 
@@ -26,7 +26,7 @@ export class UniLPV2PriceListener implements IPriceSourceAdapter {
   ) {}
 
   async start(eventHandler: (pu: PriceUpdate) => void) {
-    this.pair = this.ammService.uniLPPair(
+    this.pair = this.ammService.uniV2LPPair(
       this.priceSource.chainId,
       this.priceSource.address,
     );

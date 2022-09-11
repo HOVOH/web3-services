@@ -3904,6 +3904,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@golevelup/nestjs-discovery@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@golevelup/nestjs-discovery@npm:3.0.0"
+  dependencies:
+    lodash: ^4.17.15
+  checksum: 62d60b3da8604dc131f38fcf965fcbbb0fdce37af7d71c71710fa14b8ac1df80d22b45d3ecbe5da9bc55a233079ae031778f34b07fc5d19bda082a0345cab87f
+  languageName: node
+  linkType: hard
+
 "@hovoh/chainlink-api@0.1.2, @hovoh/chainlink-api@workspace:packages/chainlink-api":
   version: 0.0.0-use.local
   resolution: "@hovoh/chainlink-api@workspace:packages/chainlink-api"
@@ -6603,6 +6612,13 @@ __metadata:
   version: 1.11.4
   resolution: "@types/underscore@npm:1.11.4"
   checksum: db9f8486bc851b732259e51f42d62aad1ae2158be5724612dc125ece5f5d61c51447f9dea28284c2a0f79cb95e788d01cb5ce97709880019213e69fab0dd1696
+  languageName: node
+  linkType: hard
+
+"@types/validator@npm:^13":
+  version: 13.7.6
+  resolution: "@types/validator@npm:13.7.6"
+  checksum: f860dd87bc5f90cc33d2802cf2a4da307ddac63c86d86b858a85dd62d457c8fa42fc8756e05b5d24e741376debc13d46ed14bc700006bf7d0cb910118022492b
   languageName: node
   linkType: hard
 
@@ -9549,7 +9565,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:4.1.2, chalk@npm:^4.0.0, chalk@npm:^4.1.0, chalk@npm:^4.1.2":
+"chalk@npm:4.1.2, chalk@npm:^4.0.0, chalk@npm:^4.1.0, chalk@npm:^4.1.1, chalk@npm:^4.1.2":
   version: 4.1.2
   resolution: "chalk@npm:4.1.2"
   dependencies:
@@ -10130,6 +10146,13 @@ __metadata:
   version: 9.3.0
   resolution: "commander@npm:9.3.0"
   checksum: d421ce66fee25792a1470c69aa8d1b86434bf873a96483aa92c8267f81a6f20c6f7c426f5e82f88ac50a8ec4855d3f2787aebcdef8aa559e1080a2337a95a217
+  languageName: node
+  linkType: hard
+
+"commander@npm:9.4.0":
+  version: 9.4.0
+  resolution: "commander@npm:9.4.0"
+  checksum: a322de584a6ccd1ea83c24f6a660e52d16ffbe2613fcfbb8d2cc68bc9dec637492456d754fe8bb5b039ad843ed8e04fb0b107e581a75f62cde9e1a0ab1546e09
   languageName: node
   linkType: hard
 
@@ -15677,6 +15700,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"inquirer@npm:8.2.4":
+  version: 8.2.4
+  resolution: "inquirer@npm:8.2.4"
+  dependencies:
+    ansi-escapes: ^4.2.1
+    chalk: ^4.1.1
+    cli-cursor: ^3.1.0
+    cli-width: ^3.0.0
+    external-editor: ^3.0.3
+    figures: ^3.0.0
+    lodash: ^4.17.21
+    mute-stream: 0.0.8
+    ora: ^5.4.1
+    run-async: ^2.4.0
+    rxjs: ^7.5.5
+    string-width: ^4.1.0
+    strip-ansi: ^6.0.0
+    through: ^2.3.6
+    wrap-ansi: ^7.0.0
+  checksum: dfcb6529d3af443dfea2241cb471508091b51f5121a088fdb8728b23ec9b349ef0a5e13a0ef2c8e19457b0bed22f7cbbcd561f7a4529d084c562a58c605e2655
+  languageName: node
+  linkType: hard
+
 "inquirer@npm:^6.2.2":
   version: 6.5.2
   resolution: "inquirer@npm:6.5.2"
@@ -19571,6 +19617,7 @@ __metadata:
     "@types/node": ^16.11.45
     "@types/pg": ^8
     "@types/supertest": ^2.0.10
+    "@types/validator": ^13
     "@typescript-eslint/eslint-plugin": ^5.30.7
     "@typescript-eslint/parser": ^5.30.7
     dotenv: ^16.0.1
@@ -19579,6 +19626,7 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     ethers: ^5.7.0
     jest: ^26.6.3
+    nest-commander: ^3.1.0
     pg: ^8.8.0
     prettier: ^2.7.1
     reflect-metadata: ^0.1.13
@@ -19591,6 +19639,7 @@ __metadata:
     tsconfig-paths: ^4.0.0
     typeorm: ^0.3.7
     typescript: ^4.8.2
+    validator: ^13.7.0
   languageName: unknown
   linkType: soft
 
@@ -19892,6 +19941,22 @@ __metadata:
   version: 2.6.2
   resolution: "neo-async@npm:2.6.2"
   checksum: deac9f8d00eda7b2e5cd1b2549e26e10a0faa70adaa6fdadca701cc55f49ee9018e427f424bac0c790b7c7e2d3068db97f3093f1093975f2acb8f8818b936ed9
+  languageName: node
+  linkType: hard
+
+"nest-commander@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "nest-commander@npm:3.1.0"
+  dependencies:
+    "@golevelup/nestjs-discovery": 3.0.0
+    commander: 9.4.0
+    cosmiconfig: 7.0.1
+    inquirer: 8.2.4
+  peerDependencies:
+    "@nestjs/common": ^8.0.0 || ^9.0.0
+    "@nestjs/core": ^8.0.0 || ^9.0.0
+    "@types/inquirer": ^8.1.3
+  checksum: a56dcbb4dc7483ae50567d3a08eda10ba7784365d7d4358dcf2ceb34cf52ac0c0c284036fb54d6f62da20336280dbabc2b880c666eacee09d210ef274f9c432e
   languageName: node
   linkType: hard
 
@@ -26621,6 +26686,13 @@ __metadata:
     spdx-correct: ^3.0.0
     spdx-expression-parse: ^3.0.0
   checksum: 35703ac889d419cf2aceef63daeadbe4e77227c39ab6287eeb6c1b36a746b364f50ba22e88591f5d017bc54685d8137bc2d328d0a896e4d3fd22093c0f32a9ad
+  languageName: node
+  linkType: hard
+
+"validator@npm:^13.7.0":
+  version: 13.7.0
+  resolution: "validator@npm:13.7.0"
+  checksum: 2b83283de1222ca549a7ef57f46e8d49c6669213348db78b7045bce36a3b5843ff1e9f709ebf74574e06223461ee1f264f8cc9a26a0060a79a27de079d8286ef
   languageName: node
   linkType: hard
 

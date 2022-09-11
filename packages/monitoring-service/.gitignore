@@ -1,5 +1,5 @@
 .env
-
+db_backups
 # compiled output
 /dist
 /node_modules

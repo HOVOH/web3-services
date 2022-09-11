@@ -1,13 +1,8 @@
-import {
-  Injectable,
-  OnApplicationBootstrap,
-  OnModuleInit,
-} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { ChainlinkService } from './chainlink.service';
 import { PriceSource } from '../../assets/entities/price-source.entity';
 import { Cron } from '@nestjs/schedule';
 import { PriceUpdate } from '../../assets/events/price-update.event';
-import { IPriceSourceAdapter } from '../../assets/price-source.factory';
 import {
   DEFAULT_PRIORITY,
   PriceMonitor,
@@ -19,16 +14,8 @@ import { PricePollingService } from '../../assets/price-polling.service';
 
 export const PRICE_SOURCE_CHAINLINK_POLLING = 'cl_polling';
 
-interface Feed {
-  priceSource: PriceSource;
-  eventHandler: (pu: PriceUpdate) => void;
-}
-
 @Injectable()
-export class ChainlinkPollingService
-  extends PricePollingService
-  implements OnApplicationBootstrap
-{
+export class ChainlinkPollingService extends PricePollingService {
   constructor(
     private chainlinkService: ChainlinkService,
     private evmService: EvmService,
@@ -64,7 +51,8 @@ export class ChainlinkPollingService
     }
   }
 
-  async onApplicationBootstrap(): Promise<any> {
+  async onModuleInit(): Promise<any> {
+    super.onModuleInit();
     await this.registerDefaults();
   }
 

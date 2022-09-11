@@ -21,7 +21,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm": "ts-node ./node_modules/typeorm/cli.js",
     "docker:up": "docker compose -f docker-compose.yml -f production-compose.yml up -d",
-    "docker:dev": "docker compose -f docker-compose.yml up -d"
+    "docker:dev": "docker compose -f docker-compose.yml up -d",
+    "cmd": "ts-node ./src/cli.ts"
   },
   "dependencies": {
     "@hovoh/chainlink-api": "0.1.2",
@@ -40,11 +41,13 @@
     "@nestjs/typeorm": "^9.0.1",
     "dotenv": "^16.0.1",
     "ethers": "^5.7.0",
+    "nest-commander": "^3.1.0",
     "pg": "^8.8.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.5.6",
-    "typeorm": "^0.3.7"
+    "typeorm": "^0.3.7",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.6.0",
@@ -56,6 +59,7 @@
     "@types/node": "^16.11.45",
     "@types/pg": "^8",
     "@types/supertest": "^2.0.10",
+    "@types/validator": "^13",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "eslint": "^8.20.0",

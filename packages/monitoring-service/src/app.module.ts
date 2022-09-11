@@ -8,6 +8,9 @@ import { AssetsModule } from './assets/assets.module';
 import { EvmModule } from './evm/evm.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { OlympusproModule } from './olympuspro/olympuspro.module';
+import { MigrationService } from './migration.service';
+import { migrations } from '../migrations';
+import { AmmModule } from './amm/amm.module';
 
 @Module({
   imports: [
@@ -17,26 +20,25 @@ import { OlympusproModule } from './olympuspro/olympuspro.module';
       imports: [ConfigModule],
       useFactory: (config: ConfigService) => ({
         type: 'postgres',
-        host:
-          config.get('NODE_ENV') === 'production'
-            ? config.get('DB_HOST')
-            : 'localhost',
+        host: config.get('DB_HOST'),
         port: config.get('DB_PORT'),
         username: config.get('DB_USER'),
         password: config.get('DB_PASSWORD'),
         database: config.get('DB_NAME'),
         autoLoadEntities: true,
-        synchronize: true,
+        synchronize: false,
         logging: false,
+        migrations: migrations,
       }),
       inject: [ConfigService],
     }),
     ScheduleModule.forRoot(),
     AssetsModule,
     EvmModule,
+    AmmModule,
     OlympusproModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, MigrationService],
 })
 export class AppModule {}

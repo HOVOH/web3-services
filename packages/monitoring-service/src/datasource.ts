@@ -1,6 +1,8 @@
 import { DataSource } from 'typeorm';
-import { CreatePriceEntriesTable1651086364671 } from '../migrations/1651086364671-CreatePriceEntriesTable';
 import 'dotenv/config';
+import { migrations } from '../migrations';
+import { Asset } from './assets/entities/asset.entity';
+import { PriceSource } from './assets/entities/price-source.entity';
 
 const timescaleDb = new DataSource({
   type: 'postgres',
@@ -9,7 +11,8 @@ const timescaleDb = new DataSource({
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  migrations: [CreatePriceEntriesTable1651086364671],
+  migrations: migrations,
+  entities: [Asset, PriceSource],
 });
 
 export default timescaleDb;
