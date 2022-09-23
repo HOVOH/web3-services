@@ -1,0 +1,358 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 3,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "PCD6EC19238167EF9"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "PCD6EC19238167EF9"
+          },
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  at AS \"time\",\n  usd_value, average(tw_value) as twap,  average(tw_value) - stddev(agg) as bb_down, average(tw_value) - (2 * stddev(agg)) as bb_down_2\nFROM (select  \t\tprice_source_id,  \t\tat,  \t\tusd_value,  \t\tstats_agg(usd_value) OVER timespan as agg, \t\ttime_weight('Linear', at, usd_value) over timespan as tw_value \tfrom price_entries \twindow timespan as (partition by price_source_id order by at range '24 hours' preceding) \t) tw\nWHERE\n  price_source_id = '$price_source_id'\nORDER BY 1",
+          "refId": "Asset value",
+          "select": [
+            [
+              {
+                "params": [
+                  "usd_value, average(tw_value) as twap,  average(tw_value) - stddev(agg) as bb_down, average(tw_value) - (2 * stddev(agg)) as bb_down_2"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "(select  \t\tprice_source_id,  \t\tat,  \t\tusd_value,  \t\tstats_agg(usd_value) OVER timespan as agg, \t\ttime_weight('Linear', at, usd_value) over timespan as tw_value \tfrom price_entries \twindow timespan as (partition by price_source_id order by at range '24 hours' preceding) \t) tw",
+          "timeColumn": "at",
+          "where": [
+            {
+              "name": "",
+              "params": [
+                "price_source_id",
+                "=",
+                "'$price_source_id'"
+              ],
+              "type": "expression"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "PCD6EC19238167EF9"
+          },
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  at AS \"time\",\n  usd_value as bond_price\nFROM price_entries\nWHERE\n  $__timeFilter(at) AND\n  price_source_id = $bond_id\nORDER BY 1",
+          "refId": "Bond price",
+          "select": [
+            [
+              {
+                "params": [
+                  "usd_value as bond_price"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "price_entries",
+          "timeColumn": "at",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            },
+            {
+              "datatype": "int4",
+              "name": "",
+              "params": [
+                "price_source_id",
+                "=",
+                "$bond_id"
+              ],
+              "type": "expression"
+            }
+          ]
+        }
+      ],
+      "title": "Bond Price VS TWAP - STDDEV",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "PCD6EC19238167EF9"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "area"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "dark-red",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "PCD6EC19238167EF9"
+          },
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  bond_price.bucket as \"time\",\n  (cast((bond_price.usd_value - price.average) as decimal)/price.average)*100 as delta\nFROM ( \t\n  select  \t\t\n    time_bucket_gapfill('30 mins', at) AS bucket,  \t\t\n    locf(MIN(usd_value)) as usd_value \t\n  from price_entries\n  where price_source_id = ${bond_id} \n    and at > now() - INTERVAL '2 days' \n    AND at < now() group by bucket \n  ) bond_price  join ( \t\n    select  \t\t\n      time_bucket_gapfill('5 min', at) AS bucket,  \t\t\n      locf(average(time_weight('Linear', at, usd_value))) as average \t\n    from price_entries  \t\n    where price_source_id = 5 \n      and at > now() - INTERVAL '2 days' \n      AND at < now() group by bucket\n    ) price \n  on bond_price.bucket = price.bucket\nwhere price.average is not null\nORDER BY 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "bond_price.bucket, \tbond_price.usd_value as bond_price, \tprice.average as price, \tbond_price.usd_value - price.average as delta"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "( \tselect  \t\ttime_bucket_gapfill('5 min', at) AS bucket,  \t\tlocf(MIN(usd_value)) as usd_value \tfrom price_entries  \twhere price_source_id = 1 and at > now() - INTERVAL '2 days' AND at < now() group by bucket ) bond_price  join ( \tselect  \t\ttime_bucket_gapfill('5 min', at) AS bucket,  \t\tlocf(average(time_weight('Linear', at, usd_value))) as average \tfrom price_entries  \twhere price_source_id = 5 and at > now() - INTERVAL '2 days' AND at < now() group by bucket ) price on bond_price.bucket = price.bucket",
+          "timeColumn": "bond_price.bucket",
+          "where": []
+        }
+      ],
+      "title": "Bond Discount",
+      "type": "timeseries"
+    }
+  ],
+  "schemaVersion": 37,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "43114:GMX/WAVAX-univ2_swap_events",
+          "value": "5"
+        },
+        "datasource": {
+          "type": "postgres",
+          "uid": "PCD6EC19238167EF9"
+        },
+        "definition": "SELECT \"chainId\" || ':' || label || '-' || type || '---' || id as vars FROM price_source WHERE type <> 'op_bond';",
+        "hide": 0,
+        "includeAll": false,
+        "label": "PriceSource",
+        "multi": false,
+        "name": "price_source_id",
+        "options": [],
+        "query": "SELECT \"chainId\" || ':' || label || '-' || type || '---' || id as vars FROM price_source WHERE type <> 'op_bond';",
+        "refresh": 1,
+        "regex": "(?<text>.*?)---(?<value>\\d*)",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "42161:GMX/WETH-op_bond",
+          "value": "1"
+        },
+        "datasource": {
+          "type": "postgres",
+          "uid": "PCD6EC19238167EF9"
+        },
+        "definition": "SELECT \"chainId\" || ':' || label || '-' || type || '---' || id as vars FROM price_source WHERE type =  'op_bond';",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Bond",
+        "multi": false,
+        "name": "bond_id",
+        "options": [],
+        "query": "SELECT \"chainId\" || ':' || label || '-' || type || '---' || id as vars FROM price_source WHERE type =  'op_bond';",
+        "refresh": 1,
+        "regex": "(?<text>.*?)---(?<value>\\d*)",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-2d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Bond Strategy",
+  "uid": "5X3ocQMVz",
+  "version": 2,
+  "weekStart": ""
+}

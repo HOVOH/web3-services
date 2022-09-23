@@ -1,0 +1,49 @@
+{
+  "name": "@hovoh/hardhat-helpers",
+  "version": "0.0.1",
+  "description": "Hardhat TypeScript plugin boilerplate",
+  "repository": "github:nomiclabs/hardhat-ts-plugin-boilerplate",
+  "author": "Nomic Labs LLC",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "ethereum",
+    "smart-contracts",
+    "hardhat",
+    "hardhat-plugin"
+  ],
+  "scripts": {
+    "lint:fix": "prettier --write 'src/**/*.{js,ts}' 'test/**/*.{js,ts}' && tslint --fix --config tslint.json --project tsconfig.json",
+    "lint": "tslint --config tslint.json --project tsconfig.json",
+    "test": "mocha --exit --recursive 'test/**/*.test.ts'",
+    "build": "tsc --project tsconfig.json",
+    "watch": "tsc -w",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist/",
+    "LICENSE",
+    "README.md"
+  ],
+  "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.1.1",
+    "@types/expect": "^24.3.0",
+    "@types/mocha": "^9.1.1",
+    "bip39": "^3.0.4",
+    "ethereumjs-wallet": "^1.0.2",
+    "ethers": "^5.7.1",
+    "qrcode-terminal": "^0.12.0"
+  },
+  "peerDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.1.1",
+    "hardhat": "^2.11.2",
+    "hardhat-deploy": "^0.11.15"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.18",
+    "@types/qrcode-terminal": "^0.12.0",
+    "hardhat": "^2.11.2",
+    "hardhat-deploy": "^0.11.15"
+  }
+}

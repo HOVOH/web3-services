@@ -14,24 +14,15 @@
     "incremental": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "rootDirs": [
-      "../oracles", "../common/src"],
-    "baseUrl": "../oracles",
-    "outDir": "dist",
-    "paths": {
-      "~~/*": ["./src/*"],
-      "helpers/*": ["./helpers/*"],
-      "contracts/*": ["./contracts/*"],
-      "tests/*": ["./tests/*"],
-      "generated/*": ["./generated/*"],
-      "tasks/*": ["./tasks/*"],
-      "~common/*": ["../common/src/*"]
-    }
+    "outDir": "./dist",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true
   },
-  "include": ["types",
-    "../oracles/scripts", "test", "helpers", "./hardhat.config.ts", "deploy", "tasks", "scripts"],
-  "exclude": ["**/node_modules"],
+  "exclude": ["./dist", "**/node_modules"],
+  "include": [
+    "./src"
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
