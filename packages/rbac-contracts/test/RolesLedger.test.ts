@@ -9,7 +9,7 @@ import { RolesLedger } from '../generated/contract-types';
 import { connect } from '../helpers/bindings';
 import { ROLES_LEDGER_DID } from '../helpers/deployments-ids';
 
-import { ROLES_NOT_ROOT } from './helpers/errors';
+import { ROLES_NOT_ROOT } from '../helpers/errors';
 
 const { deployments, getNamedAccounts, getUnnamedAccounts } = hre;
 

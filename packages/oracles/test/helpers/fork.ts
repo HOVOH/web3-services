@@ -1,4 +1,3 @@
-import hre from 'hardhat';
 import { THardhatRuntimeEnvironmentExtended } from 'helpers/types/THardhatRuntimeEnvironmentExtended';
 import { TNetworkConfig } from 'helpers/types/TNetworkConfig';
 
@@ -8,7 +7,7 @@ import { TNetworkNames } from '~common/models';
 let currentChainId: number | null = null;
 let atBlock: number | null = null;
 
-export const getChainId = (): number => {
+export const getChainId = (hre: THardhatRuntimeEnvironmentExtended): number => {
   if (currentChainId != null) {
     return currentChainId;
   } else if (hre.network.config.chainId != null) {
