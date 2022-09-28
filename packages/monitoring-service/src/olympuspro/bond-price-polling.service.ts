@@ -29,7 +29,7 @@ export class BondPricePollingService extends PricePollingService {
         .forNetwork(Number(network))
         .multiCall((getContract) =>
           feeds.map((feed) =>
-            getContract('CustomBond', feed.priceSource.address).bondPrice(),
+            getContract('CustomBond', feed.priceSource.address).trueBondPrice(),
           ),
         );
       // Prices are returned with 8 decimals based in the principal token,
