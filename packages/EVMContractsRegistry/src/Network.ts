@@ -19,6 +19,10 @@ export enum Network {
   ARBITRUM_TESTNET = 421611,
 }
 
+export type NetworkName = keyof typeof NETWORKS_INFO;
+
+export type NetworkConfig = typeof NETWORKS_INFO[NetworkName];
+
 export const NETWORKS_INFO = {
   localhost: {
     name: 'localhost',
