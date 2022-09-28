@@ -6,7 +6,6 @@ export const useGetWeb3ModalConfig = (
   hasLocalProvider: boolean = false,
   config: { infuraId: string }
 ): Partial<ICoreOptions> | undefined => {
-  const [data, setData] = useState(false);
   const [web3Config, setWeb3Config] = useState?.<Partial<ICoreOptions>>();
 
   useEffect(() => {

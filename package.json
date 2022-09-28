@@ -46,7 +46,7 @@
     "syncpack:fix": "yarn syncpack fix-mismatches && yarn install",
     "prepare": "husky install",
     "postinstall": "husky install",
-    "lint": "yarn workspace @scaffold-eth/vite-app lint --fix && yarn workspace @scaffold-eth/common lint --fix && yarn workspace @hovoh/solidity-oracles lint --fix && yarn workspace @scaffold-eth/nextjs-app lint --fix",
+    "lint": "yarn workspace @scaffold-eth/common lint --fix && yarn workspace @hovoh/solidity-oracles lint --fix",
     "@🔖🔖🔖🔖🔖 dev linking with yalc 🔖🔖🔖🔖🔖": "echo 📖 dev tools",
     "dev:link:components": "yarn workspace @scaffold-eth/vite-app dev:link:components && yarn workspace @scaffold-eth/common dev:link:components",
     "dev:link:hooks": "yarn workspace @scaffold-eth/vite-app dev:link:hooks && yarn workspace @scaffold-eth/common dev:link:hooks",
@@ -83,14 +83,6 @@
     "ts-node": "^10.9.1"
   },
   "lint-staged": {
-    "packages/vite-app-ts/src/**/*.{ts,tsx}": [
-      "yarn workspace @scaffold-eth/vite-app lint --fix",
-      "yarn workspace @scaffold-eth/vite-app format"
-    ],
-    "packages/nextjs-app-ts/src/**/*.{ts,tsx}": [
-      "yarn workspace @scaffold-eth/nextjs-app lint --fix",
-      "yarn workspace @scaffold-eth/nextjs-app format"
-    ],
     "packages/common/src/**/*.{ts,tsx}": [
       "yarn workspace @scaffold-eth/common lint --fix",
       "yarn workspace @scaffold-eth/common format"

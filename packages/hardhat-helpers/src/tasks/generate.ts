@@ -6,7 +6,7 @@ import { hdkey } from 'ethereumjs-wallet';
 import { task } from 'hardhat/config';
 
 import { debugLog } from '../helpers/debug';
-import { mnemonicPath, mnemonicsDir } from '../helpers/mnemonic';
+import { mnemonicPath, mnemonicsDir } from '../helpers';
 
 task('generate', 'Create a mnemonic for builder deploys', async (_, _hre) => {
   const mnemonic = generateMnemonic();

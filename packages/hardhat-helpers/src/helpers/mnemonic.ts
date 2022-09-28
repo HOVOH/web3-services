@@ -4,8 +4,9 @@ import fs from 'fs';
 // Select the network you want to deploy to here:
 //
 
-export const mnemonicsDir = './mnemonics';
+export const mnemonicsDir = './mnemonics/';
 export const mnemonicPath = './mnemonics/mnemonic.secret';
+
 export const getMnemonic = (): string => {
   try {
     return fs

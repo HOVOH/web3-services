@@ -43,8 +43,9 @@ export enum BeethovenX {
   FBEETS_BAR = 'beethoven_x_fbeets_bar',
   FIDELIO_DUETTO = 'beethoven_x_fidelio_duetto',
 }
-
+const HARDHAT_NETWORK = 31337;
 export const externalContractsAddressMap: TExternalContractsAddressMap = {
+  [HARDHAT_NETWORK]: {},
   [NetworkID.MAINNET]: {
     [Tokens.DAI]: '0x6b175474e89094c44da98b954eedeac495271d0f',
   },
@@ -105,4 +106,8 @@ export const getContractAddress = (name: ExternalContractsName, networkId?: numb
     throw new Error(`${name} is unavailable on network ${networkId}`);
   }
   return contracts[name];
+};
+
+export const addHardhatContract = (name: ExternalContractsName, address: string): void => {
+  externalContractsAddressMap[HARDHAT_NETWORK][name] = address;
 };

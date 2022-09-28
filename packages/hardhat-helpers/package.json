@@ -17,7 +17,7 @@
     "lint:fix": "prettier --write 'src/**/*.{js,ts}' 'test/**/*.{js,ts}' && tslint --fix --config tslint.json --project tsconfig.json",
     "lint": "tslint --config tslint.json --project tsconfig.json",
     "test": "mocha --exit --recursive 'test/**/*.test.ts'",
-    "build": "tsc --project tsconfig.json",
+    "build": "yarn shx rm -rf ./dist/ && tsc --project tsconfig.json",
     "watch": "tsc -w",
     "prepublishOnly": "npm run build"
   },
@@ -27,6 +27,7 @@
     "README.md"
   ],
   "dependencies": {
+    "@hovoh/evmcontractsregistry": "workspace:^",
     "@nomiclabs/hardhat-ethers": "^2.1.1",
     "@types/expect": "^24.3.0",
     "@types/mocha": "^9.1.1",
@@ -41,9 +42,11 @@
     "hardhat-deploy": "^0.11.15"
   },
   "devDependencies": {
+    "@defi-wonderland/smock": "^2.3.0",
     "@types/node": "^18.7.18",
     "@types/qrcode-terminal": "^0.12.0",
     "hardhat": "^2.11.2",
-    "hardhat-deploy": "^0.11.15"
+    "hardhat-deploy": "^0.11.15",
+    "shx": "^0.3.4"
   }
 }
