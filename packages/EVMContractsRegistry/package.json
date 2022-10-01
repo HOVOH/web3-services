@@ -61,6 +61,6 @@
   },
   "dependencies": {
     "@hovoh/ethcall": "^9.9.8",
-    "ethers": "^5.7.0"
+    "ethers": "^5.7.1"
   }
 }
