@@ -24,6 +24,7 @@ export enum Tokens {
   WETH = 'WETH',
   WBTC = 'WBTC',
   OATH = 'OATH',
+  IQ = 'IQ',
 }
 
 export enum ChainlinkFeed {
@@ -77,6 +78,13 @@ export const externalContractsAddressMap: TExternalContractsAddressMap = {
     [BeethovenX.VAULT]: '0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce',
     [BeethovenX.BEETS_MASTERCHEF]: '0x8166994d9ebBe5829EC86Bd81258149B87faCfd3',
     [BeethovenX.FBEETS_BAR]: '0xfcef8a994209d6916EB2C86cDD2AFD60Aa6F54b1',
+  },
+  [NetworkID.ARBITRUM_ONE]: {
+    [Tokens.WETH]: '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
+  },
+  [NetworkID.MAINNET]: {
+    [Tokens.WETH]: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+    [Tokens.IQ]: '0x579cea1889991f68acc35ff5c3dd0621ff29b0c9',
   },
   // [NetworkID.POLYGON]: {
   //   DAI: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
