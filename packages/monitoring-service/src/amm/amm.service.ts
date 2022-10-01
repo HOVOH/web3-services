@@ -16,14 +16,14 @@ import { Network } from '@hovoh/evmcontractsregistry';
 @Injectable()
 export class AmmService implements OnModuleInit {
   uniApi: UniswapAPI;
-  traderJoeApie: UniswapAPI;
+  traderJoeApi: UniswapAPI;
 
   constructor(
     private evmService: EvmService,
     private monitorService: PriceMonitor,
   ) {
     this.uniApi = initUniswapAPI(evmService.getProviders());
-    this.traderJoeApie = initTraderJoeApi(evmService.getProviders());
+    this.traderJoeApi = initTraderJoeApi(evmService.getProviders());
   }
 
   uniV2LPPair(chaindId: number, address: string) {

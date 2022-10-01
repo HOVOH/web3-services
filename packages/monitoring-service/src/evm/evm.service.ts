@@ -1,6 +1,6 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { providers } from '@hovoh/evmcontractsregistry';
-import { JsonRpcProvider } from '@ethersproject/providers';
+import { Provider } from '@ethersproject/providers';
 import { Wallet } from 'ethers';
 import {
   ERC20,
@@ -25,7 +25,7 @@ export class EvmService implements OnModuleInit {
     return providers;
   }
 
-  getProvider(chainId: number): JsonRpcProvider | Wallet {
+  getProvider(chainId: number): Provider | Wallet {
     return providers.forNetwork(chainId);
   }
 
