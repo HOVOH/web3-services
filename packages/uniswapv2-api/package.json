@@ -59,10 +59,10 @@
     "typescript": "^4.8.2"
   },
   "dependencies": {
-    "@hovoh/ethcall": "^9.9.8",
+    "@hovoh/ethcall": "*",
     "@hovoh/evmcontractsregistry": "0.3.2",
     "@uniswap/v2-core": "^1.0.1",
-    "ethers": "^5.7.1",
+    "ethers": "*",
     "typechain": "^8.1.0"
   }
 }

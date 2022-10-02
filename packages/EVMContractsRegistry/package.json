@@ -20,6 +20,9 @@
     "test": "dts test",
     "typechain": "typechain --target node_modules/@hovoh/typechain-ethers-multicall/dist --out-dir ./bindings ./abis/*.json"
   },
+  "actions": {
+    "trigger": "0"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "dts lint"
