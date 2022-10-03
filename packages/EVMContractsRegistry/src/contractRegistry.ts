@@ -3,7 +3,7 @@ import { IContractsRegistry } from './Contract';
 export type INetworksContractMap<N> = {
   [network in keyof N]: IContractsRegistry<keyof N[network]>;
 };
-type F = {};
+
 // T is registry keyed types
 export class NetworksContractsRegistry<T extends INetworksContractMap<T>, F> {
   map: INetworksContractMap<T>;

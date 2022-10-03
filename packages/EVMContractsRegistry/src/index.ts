@@ -7,7 +7,10 @@ export {
   IContractAddress,
 } from './Contract';
 export { ContractFactory, NetworkContractFactory } from './ContractFactory';
-export { NetworksContractsRegistry } from './contractRegistry';
+export {
+  NetworksContractsRegistry,
+  INetworksContractMap,
+} from './contractRegistry';
 export { Network, NETWORKS_INFO, NetworkName, NetworkConfig } from './Network';
 export {
   IProvider,

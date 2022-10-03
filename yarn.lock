@@ -2499,21 +2499,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/abstract-provider@npm:*, @ethersproject/abstract-provider@npm:5.7.0, @ethersproject/abstract-provider@npm:^5.7.0":
-  version: 5.7.0
-  resolution: "@ethersproject/abstract-provider@npm:5.7.0"
-  dependencies:
-    "@ethersproject/bignumber": ^5.7.0
-    "@ethersproject/bytes": ^5.7.0
-    "@ethersproject/logger": ^5.7.0
-    "@ethersproject/networks": ^5.7.0
-    "@ethersproject/properties": ^5.7.0
-    "@ethersproject/transactions": ^5.7.0
-    "@ethersproject/web": ^5.7.0
-  checksum: 74cf4696245cf03bb7cc5b6cbf7b4b89dd9a79a1c4688126d214153a938126d4972d42c93182198653ce1de35f2a2cad68be40337d4774b3698a39b28f0228a8
-  languageName: node
-  linkType: hard
-
 "@ethersproject/abstract-provider@npm:5.6.0, @ethersproject/abstract-provider@npm:^5.6.0":
   version: 5.6.0
   resolution: "@ethersproject/abstract-provider@npm:5.6.0"
@@ -2541,6 +2526,21 @@ __metadata:
     "@ethersproject/transactions": ^5.6.2
     "@ethersproject/web": ^5.6.1
   checksum: a1be8035d9e67fd41a336e2d38f5cf03b7a2590243749b4cf807ad73906b5a298e177ebe291cb5b54262ded4825169bf82968e0e5b09fbea17444b903faeeab0
+  languageName: node
+  linkType: hard
+
+"@ethersproject/abstract-provider@npm:5.7.0, @ethersproject/abstract-provider@npm:^5.7.0":
+  version: 5.7.0
+  resolution: "@ethersproject/abstract-provider@npm:5.7.0"
+  dependencies:
+    "@ethersproject/bignumber": ^5.7.0
+    "@ethersproject/bytes": ^5.7.0
+    "@ethersproject/logger": ^5.7.0
+    "@ethersproject/networks": ^5.7.0
+    "@ethersproject/properties": ^5.7.0
+    "@ethersproject/transactions": ^5.7.0
+    "@ethersproject/web": ^5.7.0
+  checksum: 74cf4696245cf03bb7cc5b6cbf7b4b89dd9a79a1c4688126d214153a938126d4972d42c93182198653ce1de35f2a2cad68be40337d4774b3698a39b28f0228a8
   languageName: node
   linkType: hard
 
@@ -3912,43 +3912,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hovoh/chainlink-api@0.1.2, @hovoh/chainlink-api@workspace:packages/chainlink-api":
+"@hovoh/chainlink-api@^0.1.2, @hovoh/chainlink-api@workspace:packages/chainlink-api":
   version: 0.0.0-use.local
   resolution: "@hovoh/chainlink-api@workspace:packages/chainlink-api"
   dependencies:
     "@chainlink/contracts": ^0.4.2
     "@ethersproject/abi": ^5.7.0
-    "@ethersproject/abstract-provider": "*"
+    "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
     "@ethersproject/providers": ^5.7.1
-    "@hovoh/ethcall": "*"
-    "@hovoh/evmcontractsregistry": 0.3.2
+    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/evmcontractsregistry": ^0.3.2
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@size-limit/preset-small-lib": ^8.0.1
     "@tsconfig/recommended": ^1.0.1
     dts-cli: ^1.6.0
-    ethers: "*"
+    ethers: ^5.7.1
     husky: ^8.0.1
     size-limit: ^8.0.1
     tslib: ^2.4.0
     typechain: ^8.1.0
     typescript: ^4.8.2
+  peerDependencies:
+    "@ethersproject/abi": ^5.7.0
+    "@ethersproject/abstract-provider": ^5.7.0
+    "@ethersproject/bytes": ^5.7.0
+    "@ethersproject/providers": ^5.7.1
+    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/evmcontractsregistry": ^0.3.2
+    ethers: ^5.7.1
   languageName: unknown
   linkType: soft
-
-"@hovoh/ethcall@npm:*, @hovoh/ethcall@npm:^9.9.8":
-  version: 9.9.8
-  resolution: "@hovoh/ethcall@npm:9.9.8"
-  dependencies:
-    "@ethersproject/abi": ^5.0.0
-    "@ethersproject/bytes": ^5.0.0
-    "@ethersproject/contracts": ^5.0.0
-    "@ethersproject/providers": ^5.0.0
-    "@types/node": ^18.6.3
-    abi-coder: ^4.0.0
-  checksum: 4064eaa7705e6d8539072698de44e0f6a1a40060b690ac279720e2b395a61800c4654bb30ebba74ba9ddeddb6a1b771817e8614f7b82e6d056bd4695c23a3438
-  languageName: node
-  linkType: hard
 
 "@hovoh/ethcall@npm:^9.9.4":
   version: 9.9.7
@@ -3964,11 +3958,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hovoh/evmcontractsregistry@0.3.2, @hovoh/evmcontractsregistry@workspace:packages/EVMContractsRegistry":
+"@hovoh/ethcall@npm:^9.9.8":
+  version: 9.9.8
+  resolution: "@hovoh/ethcall@npm:9.9.8"
+  dependencies:
+    "@ethersproject/abi": ^5.0.0
+    "@ethersproject/bytes": ^5.0.0
+    "@ethersproject/contracts": ^5.0.0
+    "@ethersproject/providers": ^5.0.0
+    "@types/node": ^18.6.3
+    abi-coder: ^4.0.0
+  checksum: 4064eaa7705e6d8539072698de44e0f6a1a40060b690ac279720e2b395a61800c4654bb30ebba74ba9ddeddb6a1b771817e8614f7b82e6d056bd4695c23a3438
+  languageName: node
+  linkType: hard
+
+"@hovoh/evmcontractsregistry@0.3.2, @hovoh/evmcontractsregistry@^0.3.2, @hovoh/evmcontractsregistry@workspace:packages/EVMContractsRegistry":
   version: 0.0.0-use.local
   resolution: "@hovoh/evmcontractsregistry@workspace:packages/EVMContractsRegistry"
   dependencies:
+    "@ethersproject/abi": ^5.7.0
     "@ethersproject/abstract-provider": ^5.7.0
+    "@ethersproject/bytes": ^5.7.0
+    "@ethersproject/providers": ^5.7.1
     "@hovoh/ethcall": ^9.9.8
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@size-limit/preset-small-lib": ^8.0.1
@@ -3982,9 +3993,9 @@ __metadata:
     typechain: ^8.1.0
     typescript: ^4.8.2
   peerDependencies:
-    "@ethersproject/abstract-provider": "*"
-    "@hovoh/ethcall": "*"
-    ethers: "*"
+    "@ethersproject/abstract-provider": ^5.7.0
+    "@hovoh/ethcall": ^9.9.8
+    ethers: ^5.7.1
   languageName: unknown
   linkType: soft
 
@@ -3993,63 +4004,72 @@ __metadata:
   resolution: "@hovoh/hardhat-helpers@workspace:packages/hardhat-helpers"
   dependencies:
     "@defi-wonderland/smock": ^2.3.0
-    "@hovoh/evmcontractsregistry": 0.3.2
-    "@nomiclabs/hardhat-ethers": "*"
+    "@hovoh/evmcontractsregistry": ^0.3.2
+    "@nomiclabs/hardhat-ethers": ^2.1.1
     "@types/expect": ^24.3.0
     "@types/mocha": ^9.1.1
     "@types/node": ^18.7.18
     "@types/qrcode-terminal": ^0.12.0
     bip39: ^3.0.4
     ethereumjs-wallet: ^1.0.2
-    ethers: "*"
+    ethers: ^5.7.1
     hardhat: ^2.11.2
-    hardhat-deploy: "*"
+    hardhat-deploy: ^0.11.15
     qrcode-terminal: ^0.12.0
     shx: ^0.3.4
   peerDependencies:
-    "@nomiclabs/hardhat-ethers": "*"
+    "@nomiclabs/hardhat-ethers": ^2.1.1
+    ethers: ^5.7.1
     hardhat: ^2.11.2
-    hardhat-deploy: "*"
+    hardhat-deploy: ^0.11.15
   languageName: unknown
   linkType: soft
 
-"@hovoh/olympuspro-api@0.1.1, @hovoh/olympuspro-api@workspace:packages/olympuspro-api":
+"@hovoh/olympuspro-api@^0.1.1, @hovoh/olympuspro-api@workspace:packages/olympuspro-api":
   version: 0.0.0-use.local
   resolution: "@hovoh/olympuspro-api@workspace:packages/olympuspro-api"
   dependencies:
-    "@hovoh/ethcall": "*"
-    "@hovoh/evmcontractsregistry": 0.3.2
+    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/evmcontractsregistry": ^0.3.2
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@size-limit/preset-small-lib": ^8.0.1
     "@tsconfig/recommended": ^1.0.1
     dts-cli: ^1.6.0
-    ethers: "*"
+    ethers: ^5.7.1
     husky: ^8.0.1
     size-limit: ^8.0.1
     tslib: ^2.4.0
     typechain: ^8.1.0
     typescript: ^4.8.2
+  peerDependencies:
+    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/evmcontractsregistry": ^0.3.2
+    ethers: ^5.7.1
   languageName: unknown
   linkType: soft
 
-"@hovoh/openzeppelin-api@0.1.3, @hovoh/openzeppelin-api@workspace:packages/openzeppelin-api":
+"@hovoh/openzeppelin-api@^0.1.3, @hovoh/openzeppelin-api@workspace:packages/openzeppelin-api":
   version: 0.0.0-use.local
   resolution: "@hovoh/openzeppelin-api@workspace:packages/openzeppelin-api"
   dependencies:
-    "@hovoh/ethcall": "*"
-    "@hovoh/evmcontractsregistry": 0.3.2
+    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/evmcontractsregistry": ^0.3.2
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@openzeppelin/contracts": ^4.7.3
     "@size-limit/preset-small-lib": ^8.0.1
     "@tsconfig/recommended": ^1.0.1
     dts-cli: ^1.6.0
-    ethers: "*"
+    ethers: ^5.7.1
     husky: ^8.0.1
     shx: ^0.3.4
     size-limit: ^8.0.1
     tslib: ^2.4.0
     typechain: ^8.1.0
     typescript: ^4.8.2
+  peerDependencies:
+    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/evmcontractsregistry": ^0.3.2
+    ethers: ^5.7.1
   languageName: unknown
   linkType: soft
 
@@ -4083,7 +4103,7 @@ __metadata:
     "@ethereum-waffle/ens": ^3.4.4
     "@ethereumjs/vm": ^5.9.3
     "@ethersproject/abi": ^5.7.0
-    "@ethersproject/abstract-provider": "*"
+    "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/address": ^5.7.0
     "@ethersproject/bignumber": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
@@ -4093,16 +4113,16 @@ __metadata:
     "@ethersproject/solidity": ^5.7.0
     "@ethersproject/units": ^5.7.0
     "@hovoh/typechain-ethers-multicall": ^10.1.3
-    "@nomiclabs/hardhat-ethers": "*"
-    "@nomiclabs/hardhat-solhint": "*"
-    "@nomiclabs/hardhat-waffle": "*"
+    "@nomiclabs/hardhat-ethers": ^2.1.1
+    "@nomiclabs/hardhat-solhint": ^2.0.1
+    "@nomiclabs/hardhat-waffle": ^2.0.3
     "@openzeppelin/contracts": ^4.7.3
-    "@openzeppelin/hardhat-upgrades": "*"
-    "@primitivefi/hardhat-dodoc": "*"
+    "@openzeppelin/hardhat-upgrades": ^1.21.0
+    "@primitivefi/hardhat-dodoc": ^0.2.3
     "@scaffold-eth/common": 0.1.0
-    "@tenderly/hardhat-tenderly": "*"
+    "@tenderly/hardhat-tenderly": ^1.1.6
     "@typechain/ethers-v5": ^10.1.0
-    "@typechain/hardhat": "*"
+    "@typechain/hardhat": ^6.1.3
     "@types/chai": ^4.3.1
     "@types/mocha": ^9.1.1
     "@types/node": ^18.7.18
@@ -4129,18 +4149,18 @@ __metadata:
     ethereum-waffle: 4.0.5
     ethereumjs-util: ^7.1.5
     ethereumjs-wallet: ^1.0.2
-    ethers: "*"
+    ethers: ^5.7.1
     glob: ^8.0.3
     hardhat: ^2.11.2
-    hardhat-abi-exporter: "*"
-    hardhat-contract-sizer: "*"
-    hardhat-deploy: "*"
+    hardhat-abi-exporter: ^2.10.0
+    hardhat-contract-sizer: ^2.6.1
+    hardhat-deploy: ^0.11.15
     hardhat-deploy-ethers: ^0.3.0-beta.13
-    hardhat-gas-reporter: "*"
+    hardhat-gas-reporter: ^1.0.9
     hardhat-preprocessor: ^0.1.4
     hardhat-storage-layout: ^0.1.6
-    hardhat-tracer: "*"
-    hardhat-watcher: "*"
+    hardhat-tracer: ^1.1.0-rc.9
+    hardhat-watcher: ^2.5.0
     ipfs-http-client: ^54.0.2
     mocha: ^10.0.0
     mocha-github-actions-reporter: ^0.2.4
@@ -4153,7 +4173,7 @@ __metadata:
     shx: ^0.3.4
     solhint: ^3.3.7
     solhint-plugin-prettier: ^0.0.5
-    solidity-coverage: "*"
+    solidity-coverage: ^0.8.2
     ts-node: ^10.9.1
     tsconfig-paths: ^4.0.0
     typechain: ^8.1.0
@@ -4172,7 +4192,7 @@ __metadata:
     "@ethereum-waffle/ens": ^3.4.4
     "@ethereumjs/vm": ^5.9.3
     "@ethersproject/abi": ^5.7.0
-    "@ethersproject/abstract-provider": "*"
+    "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/address": ^5.7.0
     "@ethersproject/bignumber": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
@@ -4183,16 +4203,16 @@ __metadata:
     "@ethersproject/units": ^5.7.0
     "@hovoh/hardhat-helpers": 0.0.1
     "@hovoh/typechain-ethers-multicall": ^10.1.3
-    "@nomiclabs/hardhat-ethers": "*"
-    "@nomiclabs/hardhat-solhint": "*"
-    "@nomiclabs/hardhat-waffle": "*"
+    "@nomiclabs/hardhat-ethers": ^2.1.1
+    "@nomiclabs/hardhat-solhint": ^2.0.1
+    "@nomiclabs/hardhat-waffle": ^2.0.3
     "@openzeppelin/contracts": ^4.7.3
-    "@openzeppelin/hardhat-upgrades": "*"
-    "@primitivefi/hardhat-dodoc": "*"
+    "@openzeppelin/hardhat-upgrades": ^1.21.0
+    "@primitivefi/hardhat-dodoc": ^0.2.3
     "@scaffold-eth/common": 0.1.0
-    "@tenderly/hardhat-tenderly": "*"
+    "@tenderly/hardhat-tenderly": ^1.1.6
     "@typechain/ethers-v5": ^10.1.0
-    "@typechain/hardhat": "*"
+    "@typechain/hardhat": ^6.1.3
     "@types/chai": ^4.3.1
     "@types/mocha": ^9.1.1
     "@types/node": ^18.7.18
@@ -4219,18 +4239,18 @@ __metadata:
     ethereum-waffle: 4.0.5
     ethereumjs-util: ^7.1.5
     ethereumjs-wallet: ^1.0.2
-    ethers: "*"
+    ethers: ^5.7.1
     glob: ^8.0.3
     hardhat: ^2.11.2
-    hardhat-abi-exporter: "*"
-    hardhat-contract-sizer: "*"
-    hardhat-deploy: "*"
+    hardhat-abi-exporter: ^2.10.0
+    hardhat-contract-sizer: ^2.6.1
+    hardhat-deploy: ^0.11.15
     hardhat-deploy-ethers: ^0.3.0-beta.13
-    hardhat-gas-reporter: "*"
+    hardhat-gas-reporter: ^1.0.9
     hardhat-preprocessor: ^0.1.4
     hardhat-storage-layout: ^0.1.6
-    hardhat-tracer: "*"
-    hardhat-watcher: "*"
+    hardhat-tracer: ^1.1.0-rc.9
+    hardhat-watcher: ^2.5.0
     ipfs-http-client: ^54.0.2
     mocha: ^10.0.0
     mocha-github-actions-reporter: ^0.2.4
@@ -4243,7 +4263,7 @@ __metadata:
     shx: ^0.3.4
     solhint: ^3.3.7
     solhint-plugin-prettier: ^0.0.5
-    solidity-coverage: "*"
+    solidity-coverage: ^0.8.2
     ts-node: ^10.9.1
     tsconfig-paths: ^4.0.0
     typechain: ^8.1.0
@@ -4251,23 +4271,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hovoh/traderjoe-api@0.1.2, @hovoh/traderjoe-api@workspace:packages/traderjoe-api":
+"@hovoh/traderjoe-api@^0.1.2, @hovoh/traderjoe-api@workspace:packages/traderjoe-api":
   version: 0.0.0-use.local
   resolution: "@hovoh/traderjoe-api@workspace:packages/traderjoe-api"
   dependencies:
-    "@hovoh/ethcall": "*"
-    "@hovoh/evmcontractsregistry": 0.3.2
+    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/evmcontractsregistry": ^0.3.2
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@size-limit/preset-small-lib": ^8.0.1
     "@traderjoe-xyz/core": ^2.4.6
     "@tsconfig/recommended": ^1.0.1
     dts-cli: ^1.6.0
-    ethers: "*"
+    ethers: ^5.7.1
     husky: ^8.0.1
     size-limit: ^8.0.1
     tslib: ^2.4.0
     typechain: ^8.1.0
     typescript: ^4.8.2
+  peerDependencies:
+    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/evmcontractsregistry": ^0.3.2
+    ethers: ^5.7.1
   languageName: unknown
   linkType: soft
 
@@ -4308,23 +4332,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hovoh/uniswapv2-api@0.1.3, @hovoh/uniswapv2-api@workspace:packages/uniswapv2-api":
+"@hovoh/uniswapv2-api@^0.1.3, @hovoh/uniswapv2-api@workspace:packages/uniswapv2-api":
   version: 0.0.0-use.local
   resolution: "@hovoh/uniswapv2-api@workspace:packages/uniswapv2-api"
   dependencies:
-    "@hovoh/ethcall": "*"
-    "@hovoh/evmcontractsregistry": 0.3.2
+    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/evmcontractsregistry": ^0.3.2
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@size-limit/preset-small-lib": ^8.0.1
     "@tsconfig/recommended": ^1.0.1
     "@uniswap/v2-core": ^1.0.1
     dts-cli: ^1.6.0
-    ethers: "*"
+    ethers: ^5.7.1
     husky: ^8.0.1
     size-limit: ^8.0.1
     tslib: ^2.4.0
     typechain: ^8.1.0
     typescript: ^4.8.2
+  peerDependencies:
+    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/evmcontractsregistry": ^0.3.2
+    ethers: ^5.7.1
   languageName: unknown
   linkType: soft
 
@@ -5463,16 +5491,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomiclabs/hardhat-ethers@npm:*":
-  version: 2.1.1
-  resolution: "@nomiclabs/hardhat-ethers@npm:2.1.1"
-  peerDependencies:
-    ethers: ^5.0.0
-    hardhat: ^2.0.0
-  checksum: c702ffcd2830cdd4eda90e0f6ee191be327bb4c0293d90631eb7e44442662ff4f7282725f0e2f8f456cd2a3dbf7590a682ef31f5c6c141ba6b562870a02e1523
-  languageName: node
-  linkType: hard
-
 "@nomiclabs/hardhat-ethers@npm:^2.0.6":
   version: 2.1.0
   resolution: "@nomiclabs/hardhat-ethers@npm:2.1.0"
@@ -5483,7 +5501,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomiclabs/hardhat-solhint@npm:*":
+"@nomiclabs/hardhat-ethers@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "@nomiclabs/hardhat-ethers@npm:2.1.1"
+  peerDependencies:
+    ethers: ^5.0.0
+    hardhat: ^2.0.0
+  checksum: c702ffcd2830cdd4eda90e0f6ee191be327bb4c0293d90631eb7e44442662ff4f7282725f0e2f8f456cd2a3dbf7590a682ef31f5c6c141ba6b562870a02e1523
+  languageName: node
+  linkType: hard
+
+"@nomiclabs/hardhat-solhint@npm:^2.0.1":
   version: 2.0.1
   resolution: "@nomiclabs/hardhat-solhint@npm:2.0.1"
   dependencies:
@@ -5494,7 +5522,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomiclabs/hardhat-waffle@npm:*":
+"@nomiclabs/hardhat-waffle@npm:^2.0.3":
   version: 2.0.3
   resolution: "@nomiclabs/hardhat-waffle@npm:2.0.3"
   dependencies:
@@ -5563,11 +5591,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@openzeppelin/hardhat-upgrades@npm:*":
-  version: 1.20.0
-  resolution: "@openzeppelin/hardhat-upgrades@npm:1.20.0"
+"@openzeppelin/hardhat-upgrades@npm:^1.21.0":
+  version: 1.21.0
+  resolution: "@openzeppelin/hardhat-upgrades@npm:1.21.0"
   dependencies:
-    "@openzeppelin/upgrades-core": ^1.18.0
+    "@openzeppelin/upgrades-core": ^1.20.0
     chalk: ^4.1.0
     debug: ^4.1.1
     proper-lockfile: ^4.1.1
@@ -5581,13 +5609,13 @@ __metadata:
       optional: true
   bin:
     migrate-oz-cli-project: dist/scripts/migrate-oz-cli-project.js
-  checksum: 7957c1380f296cd6ce1e7d78968bf1954ba2a252a8cb707a7469e8a6ce3a7d173f61974f51aa4bc14a556fbc9f26a899ad5a69523b840b386c66d49dab734ec2
+  checksum: dada5df033bc29d4104a574bd8a28733c56cc86cd0d1ec17a6f074546d0ae589ba4ac417ebdb2ad7685061258cdefc406e672beeb3ec3f8874b5673badb1b0ef
   languageName: node
   linkType: hard
 
-"@openzeppelin/upgrades-core@npm:^1.18.0":
-  version: 1.19.1
-  resolution: "@openzeppelin/upgrades-core@npm:1.19.1"
+"@openzeppelin/upgrades-core@npm:^1.20.0":
+  version: 1.20.0
+  resolution: "@openzeppelin/upgrades-core@npm:1.20.0"
   dependencies:
     cbor: ^8.0.0
     chalk: ^4.1.0
@@ -5596,7 +5624,7 @@ __metadata:
     ethereumjs-util: ^7.0.3
     proper-lockfile: ^4.1.1
     solidity-ast: ^0.4.15
-  checksum: 23ce6866c92c2afc39e8765a0e12935c4fbe1582a83ec00e1fa4488dc8d65c0e7db76e97dfd766b3e23639d4b2eafb8baf2444d18fd4a7807602899c930c3b56
+  checksum: 682829324dfcd15779f7f99390eb23549bf240715bcf080855e69fa1ea2e87a63b2f190e658793cdedeb3d7baf8c36a53bf35c3cf8eab8afb1c9a28554d8829c
   languageName: node
   linkType: hard
 
@@ -5619,7 +5647,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@primitivefi/hardhat-dodoc@npm:*":
+"@primitivefi/hardhat-dodoc@npm:^0.2.3":
   version: 0.2.3
   resolution: "@primitivefi/hardhat-dodoc@npm:0.2.3"
   dependencies:
@@ -5863,7 +5891,7 @@ __metadata:
     "@dethcrypto/eth-sdk": 0.3.3
     "@emotion/react": ^11.9.3
     "@ethersproject/abi": ^5.7.0
-    "@ethersproject/abstract-provider": "*"
+    "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/address": ^5.7.0
     "@ethersproject/bignumber": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
@@ -5902,7 +5930,7 @@ __metadata:
     eslint-plugin-unused-imports: ^2.0.0
     eth-components: ^3.4.2
     eth-hooks: ^4.5.1
-    ethers: "*"
+    ethers: ^5.7.1
     fortmatic: ^2.4.0
     husky: ^8.0.1
     lint-staged: ^13.0.3
@@ -6182,7 +6210,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tenderly/hardhat-tenderly@npm:*":
+"@tenderly/hardhat-tenderly@npm:^1.1.6":
   version: 1.1.6
   resolution: "@tenderly/hardhat-tenderly@npm:1.1.6"
   dependencies:
@@ -6292,7 +6320,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typechain/hardhat@npm:*":
+"@typechain/hardhat@npm:^6.1.3":
   version: 6.1.3
   resolution: "@typechain/hardhat@npm:6.1.3"
   dependencies:
@@ -13657,44 +13685,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ethers@npm:*, ethers@npm:^5.0.24, ethers@npm:^5.6.1, ethers@npm:^5.7.1":
-  version: 5.7.1
-  resolution: "ethers@npm:5.7.1"
-  dependencies:
-    "@ethersproject/abi": 5.7.0
-    "@ethersproject/abstract-provider": 5.7.0
-    "@ethersproject/abstract-signer": 5.7.0
-    "@ethersproject/address": 5.7.0
-    "@ethersproject/base64": 5.7.0
-    "@ethersproject/basex": 5.7.0
-    "@ethersproject/bignumber": 5.7.0
-    "@ethersproject/bytes": 5.7.0
-    "@ethersproject/constants": 5.7.0
-    "@ethersproject/contracts": 5.7.0
-    "@ethersproject/hash": 5.7.0
-    "@ethersproject/hdnode": 5.7.0
-    "@ethersproject/json-wallets": 5.7.0
-    "@ethersproject/keccak256": 5.7.0
-    "@ethersproject/logger": 5.7.0
-    "@ethersproject/networks": 5.7.1
-    "@ethersproject/pbkdf2": 5.7.0
-    "@ethersproject/properties": 5.7.0
-    "@ethersproject/providers": 5.7.1
-    "@ethersproject/random": 5.7.0
-    "@ethersproject/rlp": 5.7.0
-    "@ethersproject/sha2": 5.7.0
-    "@ethersproject/signing-key": 5.7.0
-    "@ethersproject/solidity": 5.7.0
-    "@ethersproject/strings": 5.7.0
-    "@ethersproject/transactions": 5.7.0
-    "@ethersproject/units": 5.7.0
-    "@ethersproject/wallet": 5.7.0
-    "@ethersproject/web": 5.7.1
-    "@ethersproject/wordlists": 5.7.0
-  checksum: 7a61b7a105c41f9fec327887414f1950dc27bfa2d12fe29a068419eaaa3d415e6a12275685c87f700abd88c3b639ae79c09a2f90edea1e69edc8126cb0dce708
-  languageName: node
-  linkType: hard
-
 "ethers@npm:4.0.47":
   version: 4.0.47
   resolution: "ethers@npm:4.0.47"
@@ -13840,6 +13830,44 @@ __metadata:
     "@ethersproject/web": 5.6.1
     "@ethersproject/wordlists": 5.6.1
   checksum: 3ef1e1509e96029839330bef465c368fee140d98c4fb23d743a0904b7ebdf70fa3c79683a2350355c9400497a5c179fe988d84a2b578d756f09c80462a94f614
+  languageName: node
+  linkType: hard
+
+"ethers@npm:^5.6.1, ethers@npm:^5.7.1":
+  version: 5.7.1
+  resolution: "ethers@npm:5.7.1"
+  dependencies:
+    "@ethersproject/abi": 5.7.0
+    "@ethersproject/abstract-provider": 5.7.0
+    "@ethersproject/abstract-signer": 5.7.0
+    "@ethersproject/address": 5.7.0
+    "@ethersproject/base64": 5.7.0
+    "@ethersproject/basex": 5.7.0
+    "@ethersproject/bignumber": 5.7.0
+    "@ethersproject/bytes": 5.7.0
+    "@ethersproject/constants": 5.7.0
+    "@ethersproject/contracts": 5.7.0
+    "@ethersproject/hash": 5.7.0
+    "@ethersproject/hdnode": 5.7.0
+    "@ethersproject/json-wallets": 5.7.0
+    "@ethersproject/keccak256": 5.7.0
+    "@ethersproject/logger": 5.7.0
+    "@ethersproject/networks": 5.7.1
+    "@ethersproject/pbkdf2": 5.7.0
+    "@ethersproject/properties": 5.7.0
+    "@ethersproject/providers": 5.7.1
+    "@ethersproject/random": 5.7.0
+    "@ethersproject/rlp": 5.7.0
+    "@ethersproject/sha2": 5.7.0
+    "@ethersproject/signing-key": 5.7.0
+    "@ethersproject/solidity": 5.7.0
+    "@ethersproject/strings": 5.7.0
+    "@ethersproject/transactions": 5.7.0
+    "@ethersproject/units": 5.7.0
+    "@ethersproject/wallet": 5.7.0
+    "@ethersproject/web": 5.7.1
+    "@ethersproject/wordlists": 5.7.0
+  checksum: 7a61b7a105c41f9fec327887414f1950dc27bfa2d12fe29a068419eaaa3d415e6a12275685c87f700abd88c3b639ae79c09a2f90edea1e69edc8126cb0dce708
   languageName: node
   linkType: hard
 
@@ -15300,7 +15328,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hardhat-abi-exporter@npm:*":
+"hardhat-abi-exporter@npm:^2.10.0":
   version: 2.10.0
   resolution: "hardhat-abi-exporter@npm:2.10.0"
   dependencies:
@@ -15312,7 +15340,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hardhat-contract-sizer@npm:*":
+"hardhat-contract-sizer@npm:^2.6.1":
   version: 2.6.1
   resolution: "hardhat-contract-sizer@npm:2.6.1"
   dependencies:
@@ -15331,27 +15359,6 @@ __metadata:
     ethers: ^5.0.0
     hardhat: ^2.0.0
   checksum: 45206bf8d088cda08822ecf79d73e4027d8a4777cc23c3ef94568e316c45b8597130d72826fb2417edd32fe4b3dc54097161bef577663769b5c47b8262b983bb
-  languageName: node
-  linkType: hard
-
-"hardhat-deploy@npm:*":
-  version: 0.11.15
-  resolution: "hardhat-deploy@npm:0.11.15"
-  dependencies:
-    "@types/qs": ^6.9.7
-    axios: ^0.21.1
-    chalk: ^4.1.2
-    chokidar: ^3.5.2
-    debug: ^4.3.2
-    enquirer: ^2.3.6
-    ethers: ^5.5.3
-    form-data: ^4.0.0
-    fs-extra: ^10.0.0
-    match-all: ^1.2.6
-    murmur-128: ^0.2.1
-    qs: ^6.9.4
-    zksync-web3: ^0.8.1
-  checksum: 464fae9d998c3be2352afb588f1b0d8924844de90e3703c68e0d9cf6948587bed7e98c125f167182979acfdbbe941278659086f15b3e63d133578b48a85805b6
   languageName: node
   linkType: hard
 
@@ -15376,7 +15383,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hardhat-gas-reporter@npm:*":
+"hardhat-deploy@npm:^0.11.15":
+  version: 0.11.15
+  resolution: "hardhat-deploy@npm:0.11.15"
+  dependencies:
+    "@types/qs": ^6.9.7
+    axios: ^0.21.1
+    chalk: ^4.1.2
+    chokidar: ^3.5.2
+    debug: ^4.3.2
+    enquirer: ^2.3.6
+    ethers: ^5.5.3
+    form-data: ^4.0.0
+    fs-extra: ^10.0.0
+    match-all: ^1.2.6
+    murmur-128: ^0.2.1
+    qs: ^6.9.4
+    zksync-web3: ^0.8.1
+  checksum: 464fae9d998c3be2352afb588f1b0d8924844de90e3703c68e0d9cf6948587bed7e98c125f167182979acfdbbe941278659086f15b3e63d133578b48a85805b6
+  languageName: node
+  linkType: hard
+
+"hardhat-gas-reporter@npm:^1.0.9":
   version: 1.0.9
   resolution: "hardhat-gas-reporter@npm:1.0.9"
   dependencies:
@@ -15411,20 +15439,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hardhat-tracer@npm:*":
-  version: 0.0.1
-  resolution: "hardhat-tracer@npm:0.0.1"
+"hardhat-tracer@npm:^1.1.0-rc.9":
+  version: 1.1.0-rc.9
+  resolution: "hardhat-tracer@npm:1.1.0-rc.9"
   dependencies:
-    ethers: ^5.0.24
+    ethers: ^5.6.1
   peerDependencies:
-    chalk: ^4.1.0
-    ethers: ^5.0.24
-    hardhat: ^2.0.0
-  checksum: 33bce225d18c575da8d0d3a0520ca246d18e37e37de6f7a41be5da023915fef4819cae13b0e497515268da88349074dab9af574641608796f53bb2cac708eb0c
+    chalk: 4.x
+    ethers: 5.x
+    hardhat: 2.x
+  checksum: 1cce7151f9f74e0c75a64fac6fa856dc20069cd4fb3c535f5330d2aa7d8105710396bb295d629bcec2d191ed9d9cc785d1b948dfa9d464df671668dc453da183
   languageName: node
   linkType: hard
 
-"hardhat-watcher@npm:*, hardhat-watcher@npm:^2.1.1":
+"hardhat-watcher@npm:^2.1.1, hardhat-watcher@npm:^2.5.0":
   version: 2.5.0
   resolution: "hardhat-watcher@npm:2.5.0"
   dependencies:
@@ -19946,13 +19974,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "monitoring-service@workspace:packages/monitoring-service"
   dependencies:
-    "@hovoh/chainlink-api": 0.1.2
-    "@hovoh/ethcall": "*"
-    "@hovoh/evmcontractsregistry": 0.3.2
-    "@hovoh/olympuspro-api": 0.1.1
-    "@hovoh/openzeppelin-api": 0.1.3
-    "@hovoh/traderjoe-api": 0.1.2
-    "@hovoh/uniswapv2-api": 0.1.3
+    "@hovoh/chainlink-api": ^0.1.2
+    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/evmcontractsregistry": ^0.3.2
+    "@hovoh/olympuspro-api": ^0.1.1
+    "@hovoh/openzeppelin-api": ^0.1.3
+    "@hovoh/traderjoe-api": ^0.1.2
+    "@hovoh/uniswapv2-api": ^0.1.3
     "@nestjs/cli": ^7.6.0
     "@nestjs/common": ^9.0.11
     "@nestjs/config": ^2.2.0
@@ -19979,7 +20007,7 @@ __metadata:
     eslint: ^8.20.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.2.1
-    ethers: "*"
+    ethers: ^5.7.1
     jest: ^26.6.3
     nest-commander: ^3.1.0
     pg: ^8.8.0
@@ -24599,7 +24627,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"solidity-coverage@npm:*":
+"solidity-coverage@npm:^0.8.2":
   version: 0.8.2
   resolution: "solidity-coverage@npm:0.8.2"
   dependencies:

@@ -26,27 +26,26 @@
     "LICENSE",
     "README.md"
   ],
-  "dependencies": {
-    "@hovoh/evmcontractsregistry": "0.3.2",
-    "@nomiclabs/hardhat-ethers": "*",
-    "@types/expect": "^24.3.0",
-    "@types/mocha": "^9.1.1",
-    "bip39": "^3.0.4",
-    "ethereumjs-wallet": "^1.0.2",
-    "ethers": "*",
-    "qrcode-terminal": "^0.12.0"
-  },
   "peerDependencies": {
-    "@nomiclabs/hardhat-ethers": "*",
+    "@nomiclabs/hardhat-ethers": "^2.1.1",
+    "ethers": "^5.7.1",
     "hardhat": "^2.11.2",
-    "hardhat-deploy": "*"
+    "hardhat-deploy": "^0.11.15"
   },
   "devDependencies": {
     "@defi-wonderland/smock": "^2.3.0",
+    "@hovoh/evmcontractsregistry": "^0.3.3",
+    "@nomiclabs/hardhat-ethers": "^2.1.1",
+    "@types/expect": "^24.3.0",
+    "@types/mocha": "^9.1.1",
     "@types/node": "^18.7.18",
     "@types/qrcode-terminal": "^0.12.0",
+    "bip39": "^3.0.4",
+    "ethereumjs-wallet": "^1.0.2",
+    "ethers": "^5.7.1",
     "hardhat": "^2.11.2",
-    "hardhat-deploy": "*",
+    "hardhat-deploy": "^0.11.15",
+    "qrcode-terminal": "^0.12.0",
     "shx": "^0.3.4"
   }
 }

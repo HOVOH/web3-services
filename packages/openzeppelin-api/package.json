@@ -1,6 +1,6 @@
 {
   "name": "@hovoh/openzeppelin-api",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "license": "MIT",
   "author": "HOVOH",
   "main": "dist/index.js",
@@ -52,10 +52,13 @@
     }
   ],
   "devDependencies": {
+    "@hovoh/ethcall": "^9.9.8",
+    "@hovoh/evmcontractsregistry": "^0.3.3",
     "@hovoh/typechain-ethers-multicall": "^10.1.3",
     "@size-limit/preset-small-lib": "^8.0.1",
     "@tsconfig/recommended": "^1.0.1",
     "dts-cli": "^1.6.0",
+    "ethers": "^5.7.1",
     "husky": "^8.0.1",
     "shx": "^0.3.4",
     "size-limit": "^8.0.1",
@@ -64,9 +67,11 @@
     "typescript": "^4.8.2"
   },
   "dependencies": {
-    "@hovoh/ethcall": "*",
-    "@hovoh/evmcontractsregistry": "0.3.2",
-    "@openzeppelin/contracts": "^4.7.3",
-    "ethers": "*"
+    "@openzeppelin/contracts": "^4.7.3"
+  },
+  "peerDependencies": {
+    "@hovoh/ethcall": "^9.9.8",
+    "@hovoh/evmcontractsregistry": "^0.3.3",
+    "ethers": "^5.7.1"
   }
 }

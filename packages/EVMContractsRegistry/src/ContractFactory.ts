@@ -12,7 +12,6 @@ import {
   SimpleContract,
 } from './Contract';
 import { Call, initMulticallProvider } from '@hovoh/ethcall';
-import { add } from 'husky';
 
 export class ContractFactory<T extends INetworksContractMap<T>, F> {
   public readonly providers: ProvidersRegistry;

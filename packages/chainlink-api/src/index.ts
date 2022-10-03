@@ -8,9 +8,7 @@ import {
 } from '@hovoh/evmcontractsregistry';
 import {
   AggregatorV3Interface__factory,
-  EACAggregatorProxy,
   EACAggregatorProxy__factory,
-  AggregatorV3Interface,
 } from '../generated';
 
 const proxy = (address: string) => {
