@@ -5,6 +5,7 @@ on:
     branches: [ release ]
     paths:
       - "packages/EVMContractsRegistry/**"
+      - "package.lock"
 
 jobs:
   publish:

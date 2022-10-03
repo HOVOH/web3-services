@@ -21,7 +21,7 @@
     "typechain": "typechain --target node_modules/@hovoh/typechain-ethers-multicall/dist --out-dir ./bindings ./abis/*.json"
   },
   "actions": {
-    "trigger": "0"
+    "trigger": "1"
   },
   "husky": {
     "hooks": {
