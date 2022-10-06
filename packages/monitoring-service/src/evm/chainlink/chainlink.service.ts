@@ -26,8 +26,4 @@ export class ChainlinkService implements OnModuleInit {
       (ps) => new ChainlinkPriceSource(ps, this),
     );
   }
-
-  forNetwork(networkId: number) {
-    return this.api.forNetwork(networkId);
-  }
 }

@@ -27,7 +27,7 @@ export class ChainlinkPollingService extends PricePollingService {
   @Cron('59 * * * * *')
   async poll() {
     for (const [network, feeds] of Object.entries(this.feedsPerNetwork)) {
-      const latestRounds = await this.chainlinkService
+      const latestRounds = await this.chainlinkService.api
         .forNetwork(Number(network))
         .multiCall((getContract) =>
           feeds.map((feed) =>

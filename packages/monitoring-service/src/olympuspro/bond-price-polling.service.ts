@@ -15,7 +15,7 @@ export const PRICE_SOURCE_OP_BOND = 'op_bond';
 @Injectable()
 export class BondPricePollingService extends PricePollingService {
   constructor(
-    private api: OlympusProService,
+    private ops: OlympusProService,
     priceMonitor: PriceMonitor,
     private evmService: EvmService,
   ) {
@@ -25,7 +25,7 @@ export class BondPricePollingService extends PricePollingService {
   @Cron('59 * * * * *')
   async poll() {
     for (const [network, feeds] of Object.entries(this.feedsPerNetwork)) {
-      const prices = await this.api
+      const prices = await this.ops.api
         .forNetwork(Number(network))
         .multiCall((getContract) =>
           feeds.map((feed) =>
@@ -84,7 +84,7 @@ export class BondPricePollingService extends PricePollingService {
       Network.ARBITRUM,
       addresses[Network.ARBITRUM].GMX,
       addresses[Network.ARBITRUM].WETH,
-      this.api.forNetwork(Network.ARBITRUM).getContract('WETHGMX').address,
+      this.ops.api.forNetwork(Network.ARBITRUM).getContract('WETHGMX').address,
       true,
     );
   }

@@ -16,10 +16,10 @@ export class ChainlinkPriceSource implements IPriceSourceAdapter {
   ) {}
 
   async start(eventHandler: (pu: PriceUpdate) => void) {
-    const proxy = this.chainlink
+    const proxy = this.chainlink.api
       .forNetwork(this.priceSource.chainId)
       .getContractInstance('AggregatorProxy', this.priceSource.address);
-    this.feed = this.chainlink
+    this.feed = this.chainlink.api
       .forNetwork(this.priceSource.chainId)
       .getContractInstance('AggregatorV3', await proxy.aggregator());
     const priceUpdateFilter =
