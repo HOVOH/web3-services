@@ -1,7 +1,7 @@
-version: "3.9"
+version: '3.9'
 services:
   monitoring:
-    image: ghcr.io/hovoh/web3-monitoring:release
+    build: .
     environment:
       DB_HOST: "db"
       DB_PORT: "5432"
