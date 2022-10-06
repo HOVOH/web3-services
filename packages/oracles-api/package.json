@@ -60,7 +60,7 @@
     "typescript": "^4.8.2"
   },
   "dependencies": {
-    "@hovoh/evmcontractsregistry": "^0.3.3",
+    "@hovoh/evmcontractsregistry": "0.3.3",
     "@hovoh/solidity-oracles": "0.1.0"
   }
 }
