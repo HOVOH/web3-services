@@ -25,6 +25,9 @@
       "pre-commit": "dts lint"
     }
   },
+  "actions": {
+    "trigger": "0"
+  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
