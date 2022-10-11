@@ -1,28 +1,24 @@
 {
-  "name": "@hovoh/olympuspro-api",
-  "version": "0.1.2",
+  "name": "@hovoh/granaryv1-api",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "HOVOH",
   "main": "dist/index.js",
-  "module": "dist/olympuspro-api.esm.js",
+  "module": "dist/aave-api.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
-    "src",
-    "generated"
+    "src"
   ],
   "scripts": {
     "analyze": "size-limit --why",
-    "generate:typings": "typechain --target node_modules/@hovoh/typechain-ethers-multicall --out-dir generated './abi/**/*.json'",
+    "generate:typings": "typechain --target node_modules/@hovoh/typechain-ethers-multicall --out-dir ./src/generated './node_modules/@aave/protocol-v2/artifacts/contracts/**/*[^dbg].json'",
     "build": "yarn generate:typings && dts build",
     "lint": "dts lint",
     "prepare": "dts build",
     "size": "size-limit",
     "start": "dts watch",
     "test": "dts test"
-  },
-  "actions": {
-    "trigger": "2"
   },
   "husky": {
     "hooks": {
@@ -43,15 +39,19 @@
   },
   "size-limit": [
     {
-      "path": "dist/olympuspro-api.cjs.production.min.js",
+      "path": "dist/aave-api.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/olympuspro-api.esm.js",
+      "path": "dist/aave-api.esm.js",
       "limit": "10 KB"
     }
   ],
   "devDependencies": {
+    "@ethersproject/abi": "^5.7.0",
+    "@ethersproject/abstract-provider": "^5.7.0",
+    "@ethersproject/bytes": "^5.7.0",
+    "@ethersproject/providers": "^5.7.1",
     "@hovoh/ethcall": "^9.9.8",
     "@hovoh/evmcontractsregistry": "0.3.3",
     "@hovoh/typechain-ethers-multicall": "^10.1.3",
@@ -65,7 +65,14 @@
     "typechain": "^8.1.0",
     "typescript": "^4.8.4"
   },
+  "dependencies": {
+    "@aave/protocol-v2": "^1.0.1"
+  },
   "peerDependencies": {
+    "@ethersproject/abi": "^5.7.0",
+    "@ethersproject/abstract-provider": "^5.7.0",
+    "@ethersproject/bytes": "^5.7.0",
+    "@ethersproject/providers": "^5.7.1",
     "@hovoh/ethcall": "^9.9.8",
     "@hovoh/evmcontractsregistry": "0.3.3",
     "ethers": "^5.7.1"

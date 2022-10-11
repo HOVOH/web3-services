@@ -23,6 +23,7 @@
     "w:oracles": "yarn workspace @hovoh/solidity-oracles",
     "w:evmcontractsregistry": "yarn workspace @hovoh/evmcontractsregistry",
     "w:uniswapv2-api": "yarn workspace @hovoh/uniswapv2-api",
+    "w:granaryv1-api": "yarn workspace @hovoh/granaryv1-api",
     "w:traderjoe-api": "yarn workspace @hovoh/traderjoe-api",
     "w:chainlink-api": "yarn workspace @hovoh/chainlink-api",
     "w:openzeppelin-api": "yarn workspace @hovoh/openzeppelin-api",
@@ -44,13 +45,10 @@
     "package:openzeppelin-api": "yarn w:openzeppelin-api build",
     "@🔖🔖🔖🔖🔖 utilities 🔖🔖🔖🔖🔖": "echo 📖 utilities commands",
     "syncpack:fix": "yarn syncpack fix-mismatches && yarn install",
+    "syncpack:list": "yarn syncpack list-mismatches",
     "prepare": "husky install",
     "postinstall": "husky install",
-    "lint": "yarn workspace @scaffold-eth/common lint --fix && yarn workspace @hovoh/solidity-oracles lint --fix",
-    "@🔖🔖🔖🔖🔖 dev linking with yalc 🔖🔖🔖🔖🔖": "echo 📖 dev tools",
-    "dev:link:components": "yarn workspace @scaffold-eth/vite-app dev:link:components && yarn workspace @scaffold-eth/common dev:link:components",
-    "dev:link:hooks": "yarn workspace @scaffold-eth/vite-app dev:link:hooks && yarn workspace @scaffold-eth/common dev:link:hooks",
-    "dev:unlink": "yarn workspace @scaffold-eth/vite-app dev:unlink && yarn workspace @scaffold-eth/vite-app dev:unlink && yarn workspace @scaffold-eth/common dev:unlink && yarn workspace @scaffold-eth/common dev:unlink"
+    "lint": "yarn workspace @scaffold-eth/common lint --fix && yarn workspace @hovoh/solidity-oracles lint --fix"
   },
   "workspaces": [
     "packages/*"
