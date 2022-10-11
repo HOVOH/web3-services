@@ -4015,7 +4015,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hovoh/granaryv1-api@0.1.0, @hovoh/granaryv1-api@workspace:packages/granaryv1-api":
+"@hovoh/granaryv1-api@workspace:packages/granaryv1-api":
   version: 0.0.0-use.local
   resolution: "@hovoh/granaryv1-api@workspace:packages/granaryv1-api"
   dependencies:
@@ -4229,7 +4229,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hovoh/solidity-rbac@0.1.0, @hovoh/solidity-rbac@workspace:packages/rbac-contracts":
+"@hovoh/solidity-rbac@workspace:packages/rbac-contracts":
   version: 0.0.0-use.local
   resolution: "@hovoh/solidity-rbac@workspace:packages/rbac-contracts"
   dependencies:
@@ -4268,101 +4268,6 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.30.7
     "@typescript-eslint/parser": ^5.30.7
     "@uniswap/v2-core": ^1.0.1
-    axios: ^0.27.2
-    bip39: ^3.0.4
-    chai: ^4.3.6
-    chalk: ^4.1.2
-    cross-env: ^7.0.3
-    dotenv: ^16.0.1
-    eslint: ^8.20.0
-    eslint-config-airbnb: ^19.0.4
-    eslint-config-airbnb-typescript: ^17.0.0
-    eslint-config-prettier: ^8.5.0
-    eslint-config-standard-kit: ^0.15.1
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-mocha: ^10.1.0
-    eslint-plugin-node: ^11.1.0
-    eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-unused-imports: ^2.0.0
-    ethereum-waffle: 4.0.5
-    ethereumjs-util: ^7.1.5
-    ethereumjs-wallet: ^1.0.2
-    ethers: ^5.7.1
-    glob: ^8.0.3
-    hardhat: ^2.11.2
-    hardhat-abi-exporter: ^2.10.0
-    hardhat-contract-sizer: ^2.6.1
-    hardhat-deploy: ^0.11.15
-    hardhat-deploy-ethers: ^0.3.0-beta.13
-    hardhat-gas-reporter: ^1.0.9
-    hardhat-preprocessor: ^0.1.4
-    hardhat-storage-layout: ^0.1.6
-    hardhat-tracer: ^1.1.0-rc.9
-    hardhat-watcher: ^2.5.0
-    ipfs-http-client: ^54.0.2
-    mocha: ^10.0.0
-    mocha-github-actions-reporter: ^0.2.4
-    mocha-junit-reporter: ^2.0.2
-    node-watch: ^0.7.3
-    prettier: ^2.7.1
-    prettier-plugin-solidity: ^1.0.0-dev.23
-    qrcode-terminal: ^0.12.0
-    rlp: ^3.0.0
-    shx: ^0.3.4
-    solhint: ^3.3.7
-    solhint-plugin-prettier: ^0.0.5
-    solidity-coverage: ^0.8.2
-    ts-node: ^10.9.1
-    tsconfig-paths: ^4.0.0
-    typechain: ^8.1.0
-    typescript: ^4.8.4
-  languageName: unknown
-  linkType: soft
-
-"@hovoh/solidity-vaults@workspace:packages/vault-contracts":
-  version: 0.0.0-use.local
-  resolution: "@hovoh/solidity-vaults@workspace:packages/vault-contracts"
-  dependencies:
-    "@atixlabs/hardhat-time-n-mine": ^0.0.5
-    "@chainlink/contracts": ^0.4.2
-    "@defi-wonderland/smock": ^2.3.0
-    "@eth-optimism/hardhat-ovm": ^0.2.4
-    "@ethereum-waffle/ens": ^3.4.4
-    "@ethereumjs/vm": ^5.9.3
-    "@ethersproject/abi": ^5.7.0
-    "@ethersproject/abstract-provider": ^5.7.0
-    "@ethersproject/address": ^5.7.0
-    "@ethersproject/bignumber": ^5.7.0
-    "@ethersproject/bytes": ^5.7.0
-    "@ethersproject/contracts": ^5.7.0
-    "@ethersproject/networks": ^5.7.0
-    "@ethersproject/providers": ^5.7.1
-    "@ethersproject/solidity": ^5.7.0
-    "@ethersproject/units": ^5.7.0
-    "@hovoh/evmcontractsregistry": 0.3.3
-    "@hovoh/hardhat-helpers": 0.0.1
-    "@hovoh/olympuspro-api": 0.1.2
-    "@hovoh/solidity-rbac": 0.1.0
-    "@hovoh/typechain-ethers-multicall": ^10.1.3
-    "@nomiclabs/hardhat-ethers": ^2.1.1
-    "@nomiclabs/hardhat-solhint": ^2.0.1
-    "@nomiclabs/hardhat-waffle": ^2.0.3
-    "@openzeppelin/contracts": ^4.7.3
-    "@openzeppelin/hardhat-upgrades": ^1.21.0
-    "@primitivefi/hardhat-dodoc": ^0.2.3
-    "@scaffold-eth/common": 0.1.0
-    "@tenderly/hardhat-tenderly": ^1.1.6
-    "@typechain/ethers-v5": ^10.1.0
-    "@typechain/hardhat": ^6.1.3
-    "@types/chai": ^4.3.1
-    "@types/mocha": ^9.1.1
-    "@types/node": ^18.7.18
-    "@types/qrcode-terminal": ^0.12.0
-    "@typescript-eslint/eslint-plugin": ^5.30.7
-    "@typescript-eslint/parser": ^5.30.7
-    "@uniswap/v2-core": ^1.0.1
-    "@uniswap/v3-core": ^1.0.1
-    "@uniswap/v3-periphery": ^1.4.2
     axios: ^0.27.2
     bip39: ^3.0.4
     chai: ^4.3.6
@@ -7673,13 +7578,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@uniswap/v3-core@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@uniswap/v3-core@npm:1.0.1"
-  checksum: 4bfd8b218391a3d9efde44e0f984cfec3bc25889cd4d1386766828521006e71b210a3583ee32b52f3c81d384af9e8c39f471f2229e9af4d50da6801446ecb3e4
-  languageName: node
-  linkType: hard
-
 "@uniswap/v3-periphery@npm:1.3.0":
   version: 1.3.0
   resolution: "@uniswap/v3-periphery@npm:1.3.0"
@@ -7708,7 +7606,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@uniswap/v3-periphery@npm:^1.0.1, @uniswap/v3-periphery@npm:^1.1.1, @uniswap/v3-periphery@npm:^1.4.2":
+"@uniswap/v3-periphery@npm:^1.0.1, @uniswap/v3-periphery@npm:^1.1.1":
   version: 1.4.2
   resolution: "@uniswap/v3-periphery@npm:1.4.2"
   dependencies:
@@ -20130,7 +20028,6 @@ __metadata:
     "@hovoh/chainlink-api": 0.1.3
     "@hovoh/ethcall": ^9.9.8
     "@hovoh/evmcontractsregistry": 0.3.3
-    "@hovoh/granaryv1-api": 0.1.0
     "@hovoh/olympuspro-api": 0.1.2
     "@hovoh/openzeppelin-api": 0.1.4
     "@hovoh/traderjoe-api": 0.1.3
