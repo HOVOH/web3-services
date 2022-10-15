@@ -2,11 +2,7 @@ import { Injectable, OnModuleInit } from '@nestjs/common';
 import { providers } from '@hovoh/evmcontractsregistry';
 import { Provider } from '@ethersproject/providers';
 import { Wallet } from 'ethers';
-import {
-  ERC20,
-  initOpenZeppelinAPI,
-  OpenZeppelinAPI,
-} from '@hovoh/openzeppelin-api';
+import { initOpenZeppelinAPI, OpenZeppelinAPI } from '@hovoh/openzeppelin-api';
 import { IMulticallProvider } from '@hovoh/ethcall';
 import { Asset } from '../assets/entities/asset.entity';
 import { AssetService } from '../assets/asset.service';
