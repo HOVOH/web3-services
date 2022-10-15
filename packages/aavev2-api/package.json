@@ -1,10 +1,10 @@
 {
-  "name": "@hovoh/granaryv1-api",
+  "name": "@hovoh/aavev2-api",
   "version": "0.1.0",
   "license": "MIT",
   "author": "HOVOH",
   "main": "dist/index.js",
-  "module": "dist/granaryv1-api.esm.js",
+  "module": "dist/aave-api.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "analyze": "size-limit --why",
-    "generate:typings": "typechain --target node_modules/@hovoh/typechain-ethers-multicall --out-dir ./src/generated './node_modules/@aave/protocol-v2/artifacts/contracts/**/*[^dbg].json'",
+    "generate:typings": "typechain --target node_modules/@hovoh/typechain-ethers-multicall --out-dir ./src/generated/aave './node_modules/@aave/protocol-v2/artifacts/contracts/**/*[^dbg].json'",
     "build": "yarn generate:typings && dts build",
     "lint": "dts lint",
     "prepare": "dts build",
@@ -24,9 +24,6 @@
     "hooks": {
       "pre-commit": "dts lint"
     }
-  },
-  "actions": {
-    "trigger": "0"
   },
   "prettier": {
     "printWidth": 80,

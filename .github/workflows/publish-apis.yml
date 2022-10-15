@@ -9,7 +9,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        apis: ["uniswapv2-api", "chainlink-api", "openzeppelin-api", "traderjoe-api", "olympuspro-api", "granaryv1-api"]
+        apis: [
+          "uniswapv2-api",
+          "chainlink-api",
+          "openzeppelin-api",
+          "traderjoe-api",
+          "olympuspro-api",
+          "aavev2-api",
+          "geistv1-api",
+          "granaryv1-api"
+        ]
     runs-on: ubuntu-latest
     name: "Publish ${{matrix.apis}}"
     steps:

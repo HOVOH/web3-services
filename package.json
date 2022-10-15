@@ -23,6 +23,8 @@
     "w:oracles": "yarn workspace @hovoh/solidity-oracles",
     "w:evmcontractsregistry": "yarn workspace @hovoh/evmcontractsregistry",
     "w:uniswapv2-api": "yarn workspace @hovoh/uniswapv2-api",
+    "w:aavev2-api": "yarn workspace @hovoh/aavev2-api",
+    "w:geistv1-api": "yarn workspace @hovoh/geistv1-api",
     "w:granaryv1-api": "yarn workspace @hovoh/granaryv1-api",
     "w:traderjoe-api": "yarn workspace @hovoh/traderjoe-api",
     "w:chainlink-api": "yarn workspace @hovoh/chainlink-api",
