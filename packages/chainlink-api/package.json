@@ -1,6 +1,6 @@
 {
   "name": "@hovoh/chainlink-api",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "license": "MIT",
   "author": "HOVOH ",
   "main": "dist/index.js",
