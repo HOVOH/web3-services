@@ -4,7 +4,7 @@
   "license": "MIT",
   "author": "HOVOH",
   "main": "dist/index.js",
-  "module": "dist/aave-api.esm.js",
+  "module": "dist/aavev2-api.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
