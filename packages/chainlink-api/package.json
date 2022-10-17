@@ -2,7 +2,7 @@
   "name": "@hovoh/chainlink-api",
   "version": "0.1.4",
   "license": "MIT",
-  "author": "HOVOH ",
+  "author": "HOVOH",
   "main": "dist/index.js",
   "module": "dist/chainlink-api.esm.js",
   "typings": "dist/index.d.ts",
