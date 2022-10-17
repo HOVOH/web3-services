@@ -26,7 +26,7 @@
     "cmd": "ts-node ./src/cli.ts"
   },
   "dependencies": {
-    "@hovoh/chainlink-api": "0.1.4",
+    "@hovoh/chainlink-api": "0.1.5",
     "@hovoh/ethcall": "^9.9.8",
     "@hovoh/evmcontractsregistry": "0.3.3",
     "@hovoh/olympuspro-api": "0.1.2",
