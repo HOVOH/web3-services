@@ -26,6 +26,7 @@
     "w:aavev2-api": "yarn workspace @hovoh/aavev2-api",
     "w:geistv1-api": "yarn workspace @hovoh/geistv1-api",
     "w:granaryv1-api": "yarn workspace @hovoh/granaryv1-api",
+    "w:sturdyv1-api": "yarn workspace @hovoh/sturdyv1-api",
     "w:traderjoe-api": "yarn workspace @hovoh/traderjoe-api",
     "w:chainlink-api": "yarn workspace @hovoh/chainlink-api",
     "w:openzeppelin-api": "yarn workspace @hovoh/openzeppelin-api",

@@ -17,7 +17,8 @@ jobs:
           "olympuspro-api",
           "aavev2-api",
           "geistv1-api",
-          "granaryv1-api"
+          "granaryv1-api",
+          "sturdyv1-api"
         ]
     runs-on: ubuntu-latest
     name: "Publish ${{matrix.apis}}"
