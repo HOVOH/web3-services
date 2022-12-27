@@ -12,6 +12,7 @@ import {
   SimpleContract,
 } from './Contract';
 import { Call, initMulticallProvider } from '@hovoh/ethcall';
+import { isAddress } from 'ethers/lib/utils';
 
 export class ContractFactory<T extends INetworksContractMap<T>, F> {
   public readonly providers: ProvidersRegistry;
@@ -35,18 +36,20 @@ export class ContractFactory<T extends INetworksContractMap<T>, F> {
     }
     const networkProvider = provider || this.providers.forNetwork(nid);
     const contracts = this.contracts.forNetwork(network);
-    return new NetworkContractFactory<T[K] & F>(
+    return new NetworkContractFactory<T[K] & F, keyof T[K]>(
       networkProvider,
       nid as number,
-      contracts as T[K] & F
-    ) as unknown as IContractFactory<T[K] & F>;
+      contracts as T[K] & F,
+      this.contracts.getContractNames(network)
+    ) as unknown as IContractFactory<T[K] & F, keyof T[K]>;
   }
 }
 
-export interface IContractFactory<T extends IContractsRegistry<keyof T>> {
+export interface IContractFactory<T extends IContractsRegistry<keyof T>, L> {
   readonly networkProvider: Provider | Signer;
   readonly chainId: number;
   readonly contracts: IContractsRegistry<keyof T>;
+  readonly contractNames: L[];
 
   multiCall<K extends keyof T, T1, T2>(
     calls: (
@@ -182,19 +185,22 @@ export interface IContractFactory<T extends IContractsRegistry<keyof T>> {
 }
 
 // T is name => ContractVersion<FactoryType>
-export class NetworkContractFactory<T extends IContractsRegistry<keyof T>> {
+export class NetworkContractFactory<T extends IContractsRegistry<keyof T>, L> {
   public readonly networkProvider: Provider | Signer;
   public readonly contracts: IContractsRegistry<keyof T>;
   public readonly chainId: number;
+  public readonly contractNames: L[];
 
   constructor(
     provider: Provider | Signer,
     chainId: number,
-    contractsRegistry: T
+    contractsRegistry: T,
+    contractNameList: L[]
   ) {
     this.networkProvider = provider;
     this.contracts = contractsRegistry;
     this.chainId = chainId;
+    this.contractNames = contractNameList;
   }
 
   public getContractVersions<K extends keyof T>(contractName: K) {
@@ -239,6 +245,11 @@ export class NetworkContractFactory<T extends IContractsRegistry<keyof T>> {
     address?: string
   ) {
     const contract = this.getContract(contractName);
+    if (!address && !isAddress(contract.address)) {
+      throw Error(
+        'Cannot instanciate contract: Invalid address. Override it with the address parameter'
+      );
+    }
     return this.instanciateContract(contract, address);
   }
 

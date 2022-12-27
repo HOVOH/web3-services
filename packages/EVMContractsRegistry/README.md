@@ -25,7 +25,8 @@ In this case we use factories from Typechain generated using [typechain for ethe
 
 ```typescript
 import {
-  contract
+  contract,
+  bindings
 } from "@hovoh/evmcontractsregistry";
 
 const deployedAtBlock = 999999;
@@ -39,7 +40,7 @@ const optimismMainnet = {
 }
 
 const bindings = {
-  ERC20: contract("0x0", ERC20__factory.connect, ERC20__factory.multicall, 0)
+  ERC20: bindings(ERC20__factory.connect, ERC20__factory.multicall)
 }
 ```
 

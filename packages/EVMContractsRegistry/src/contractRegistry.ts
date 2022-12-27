@@ -37,4 +37,8 @@ export class NetworksContractsRegistry<T extends INetworksContractMap<T>, F> {
   public setNamedFactories(factoriesMap: F) {
     this.factories = factoriesMap;
   }
+
+  public getContractNames<K extends keyof T>(network: K): (keyof T[K])[] {
+    return Object.keys(this.map[network]) as (keyof T[K])[];
+  }
 }

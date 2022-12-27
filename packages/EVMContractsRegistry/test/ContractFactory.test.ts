@@ -84,6 +84,13 @@ describe('ContractFactory', () => {
     expect(networkContractFactory.networkProvider).not.toBeNull();
   });
 
+  it('Should return the contract names', () => {
+    const networkContractFactory = contractFactory.forNetwork(
+      Network.OPERA_MAINNET
+    );
+    expect(networkContractFactory.contractNames).toEqual(['WFTM', 'BOO']);
+  });
+
   it('Should return the contracts properly typed and initialised', async () => {
     const boo = contractFactory
       .forNetwork(Network.OPERA_MAINNET)
