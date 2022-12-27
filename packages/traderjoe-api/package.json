@@ -50,7 +50,7 @@
   ],
   "devDependencies": {
     "@hovoh/ethcall": "^9.9.8",
-    "@hovoh/evmcontractsregistry": "0.3.3",
+    "@hovoh/evmcontractsregistry": "0.3.4",
     "@hovoh/typechain-ethers-multicall": "^10.1.3",
     "@size-limit/preset-small-lib": "^8.1.0",
     "@traderjoe-xyz/core": "^2.4.6",
@@ -65,7 +65,7 @@
   },
   "peerDependencies": {
     "@hovoh/ethcall": "^9.9.8",
-    "@hovoh/evmcontractsregistry": "0.3.3",
+    "@hovoh/evmcontractsregistry": "0.3.4",
     "ethers": "^5.7.1"
   }
 }
