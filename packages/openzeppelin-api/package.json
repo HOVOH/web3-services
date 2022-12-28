@@ -52,7 +52,7 @@
     }
   ],
   "devDependencies": {
-    "@hovoh/ethcall": "^9.9.8",
+    "@hovoh/ethcall": "^9.9.9",
     "@hovoh/evmcontractsregistry": "0.3.4",
     "@hovoh/typechain-ethers-multicall": "^10.1.3",
     "@size-limit/preset-small-lib": "^8.1.0",
@@ -70,7 +70,7 @@
     "@openzeppelin/contracts": "^4.7.3"
   },
   "peerDependencies": {
-    "@hovoh/ethcall": "^9.9.8",
+    "@hovoh/ethcall": "^9.9.9",
     "@hovoh/evmcontractsregistry": "0.3.4",
     "ethers": "^5.7.1"
   }

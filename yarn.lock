@@ -3937,7 +3937,7 @@ __metadata:
     "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
     "@ethersproject/providers": ^5.7.1
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@size-limit/preset-small-lib": ^8.1.0
@@ -3954,7 +3954,7 @@ __metadata:
     "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
     "@ethersproject/providers": ^5.7.1
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     ethers: ^5.7.1
   languageName: unknown
@@ -3969,7 +3969,7 @@ __metadata:
     "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
     "@ethersproject/providers": ^5.7.1
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@size-limit/preset-small-lib": ^8.1.0
@@ -3986,7 +3986,7 @@ __metadata:
     "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
     "@ethersproject/providers": ^5.7.1
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     ethers: ^5.7.1
   languageName: unknown
@@ -4006,9 +4006,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hovoh/ethcall@npm:^9.9.8":
-  version: 9.9.8
-  resolution: "@hovoh/ethcall@npm:9.9.8"
+"@hovoh/ethcall@npm:^9.9.9":
+  version: 9.9.9
+  resolution: "@hovoh/ethcall@npm:9.9.9"
   dependencies:
     "@ethersproject/abi": ^5.0.0
     "@ethersproject/bytes": ^5.0.0
@@ -4016,7 +4016,7 @@ __metadata:
     "@ethersproject/providers": ^5.0.0
     "@types/node": ^18.6.3
     abi-coder: ^4.0.0
-  checksum: 4064eaa7705e6d8539072698de44e0f6a1a40060b690ac279720e2b395a61800c4654bb30ebba74ba9ddeddb6a1b771817e8614f7b82e6d056bd4695c23a3438
+  checksum: d3d9b2f80d70704996f668270d8f6021ad51cb53cec59af8975a94b073a5ac89408dc51df6f398b78764c46ba6027252b668d55cd82263a31845a302171297c7
   languageName: node
   linkType: hard
 
@@ -4028,7 +4028,7 @@ __metadata:
     "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
     "@ethersproject/providers": ^5.7.1
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@size-limit/preset-small-lib": ^8.1.0
     "@tsconfig/recommended": ^1.0.1
@@ -4042,7 +4042,7 @@ __metadata:
     typescript: ^4.8.4
   peerDependencies:
     "@ethersproject/abstract-provider": ^5.7.0
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     ethers: ^5.7.1
   languageName: unknown
   linkType: soft
@@ -4056,7 +4056,7 @@ __metadata:
     "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
     "@ethersproject/providers": ^5.7.1
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@size-limit/preset-small-lib": ^8.1.0
@@ -4073,7 +4073,7 @@ __metadata:
     "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
     "@ethersproject/providers": ^5.7.1
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     ethers: ^5.7.1
   languageName: unknown
@@ -4088,7 +4088,7 @@ __metadata:
     "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
     "@ethersproject/providers": ^5.7.1
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@size-limit/preset-small-lib": ^8.1.0
@@ -4105,7 +4105,7 @@ __metadata:
     "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
     "@ethersproject/providers": ^5.7.1
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     ethers: ^5.7.1
   languageName: unknown
@@ -4141,7 +4141,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hovoh/olympuspro-api@workspace:packages/olympuspro-api"
   dependencies:
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@size-limit/preset-small-lib": ^8.1.0
@@ -4154,7 +4154,7 @@ __metadata:
     typechain: ^8.1.0
     typescript: ^4.8.4
   peerDependencies:
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     ethers: ^5.7.1
   languageName: unknown
@@ -4164,7 +4164,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hovoh/openzeppelin-api@workspace:packages/openzeppelin-api"
   dependencies:
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@openzeppelin/contracts": ^4.7.3
@@ -4179,7 +4179,7 @@ __metadata:
     typechain: ^8.1.0
     typescript: ^4.8.4
   peerDependencies:
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     ethers: ^5.7.1
   languageName: unknown
@@ -4392,7 +4392,7 @@ __metadata:
     "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
     "@ethersproject/providers": ^5.7.1
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@size-limit/preset-small-lib": ^8.1.0
@@ -4409,7 +4409,7 @@ __metadata:
     "@ethersproject/abstract-provider": ^5.7.0
     "@ethersproject/bytes": ^5.7.0
     "@ethersproject/providers": ^5.7.1
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     ethers: ^5.7.1
   languageName: unknown
@@ -4419,7 +4419,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hovoh/traderjoe-api@workspace:packages/traderjoe-api"
   dependencies:
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@size-limit/preset-small-lib": ^8.1.0
@@ -4433,7 +4433,7 @@ __metadata:
     typechain: ^8.1.0
     typescript: ^4.8.4
   peerDependencies:
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     ethers: ^5.7.1
   languageName: unknown
@@ -4476,11 +4476,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hovoh/uniswapv2-api@0.1.4, @hovoh/uniswapv2-api@workspace:packages/uniswapv2-api":
+"@hovoh/uniswapv2-api@0.1.5, @hovoh/uniswapv2-api@workspace:packages/uniswapv2-api":
   version: 0.0.0-use.local
   resolution: "@hovoh/uniswapv2-api@workspace:packages/uniswapv2-api"
   dependencies:
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     "@hovoh/typechain-ethers-multicall": ^10.1.3
     "@size-limit/preset-small-lib": ^8.1.0
@@ -4494,7 +4494,7 @@ __metadata:
     typechain: ^8.1.0
     typescript: ^4.8.4
   peerDependencies:
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     ethers: ^5.7.1
   languageName: unknown
@@ -20122,12 +20122,12 @@ __metadata:
   resolution: "monitoring-service@workspace:packages/monitoring-service"
   dependencies:
     "@hovoh/chainlink-api": 0.1.5
-    "@hovoh/ethcall": ^9.9.8
+    "@hovoh/ethcall": ^9.9.9
     "@hovoh/evmcontractsregistry": 0.3.4
     "@hovoh/olympuspro-api": 0.1.2
     "@hovoh/openzeppelin-api": 0.1.4
     "@hovoh/traderjoe-api": 0.1.3
-    "@hovoh/uniswapv2-api": 0.1.4
+    "@hovoh/uniswapv2-api": 0.1.5
     "@nestjs/cli": ^7.6.0
     "@nestjs/common": ^9.0.11
     "@nestjs/config": ^2.2.0
