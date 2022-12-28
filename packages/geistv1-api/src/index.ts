@@ -3,7 +3,7 @@ import {
   ContractFactory,
   Network,
   NetworksContractsRegistry,
-  ProvidersRegistry,
+  IProvidersRegistry,
 } from '@hovoh/evmcontractsregistry';
 import {
   AaveProtocolDataProvider__factory,
@@ -104,7 +104,7 @@ export type GeistAPI = ContractFactory<
 >;
 export type GeistNetworks = keyof GeistNetworksContractMap;
 
-export const initGeistApi = (providers: ProvidersRegistry): GeistAPI => {
+export const initGeistApi = (providers: IProvidersRegistry): GeistAPI => {
   return new ContractFactory(providers, geistApi);
 };
 

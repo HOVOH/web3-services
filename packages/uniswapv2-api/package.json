@@ -1,6 +1,6 @@
 {
   "name": "@hovoh/uniswapv2-api",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "license": "MIT",
   "author": "HOVOH",
   "main": "dist/index.js",
@@ -9,11 +9,11 @@
   "files": [
     "dist",
     "src",
-    "generated"
+    "src/generated"
   ],
   "scripts": {
     "analyze": "size-limit --why",
-    "generate:typings": "typechain --target node_modules/@hovoh/typechain-ethers-multicall --out-dir ./generated './node_modules/@uniswap/v2-core/build/**/*Uniswap*.json'",
+    "generate:typings": "typechain --target node_modules/@hovoh/typechain-ethers-multicall --out-dir src/generated './node_modules/@uniswap/v2-core/build/**/*Uniswap*.json'",
     "build": "yarn generate:typings && dts build",
     "lint": "dts lint",
     "prepare": "dts build",
@@ -50,7 +50,7 @@
   ],
   "devDependencies": {
     "@hovoh/ethcall": "^9.9.9",
-    "@hovoh/evmcontractsregistry": "0.3.5",
+    "@hovoh/evmcontractsregistry": "0.3.6",
     "@hovoh/typechain-ethers-multicall": "^10.1.3",
     "@size-limit/preset-small-lib": "^8.1.0",
     "@tsconfig/recommended": "^1.0.1",
@@ -64,13 +64,13 @@
   },
   "dependencies": {
     "@hovoh/ethcall": "^9.9.9",
-    "@hovoh/evmcontractsregistry": "0.3.5",
+    "@hovoh/evmcontractsregistry": "0.3.6",
     "@uniswap/v2-core": "^1.0.1",
     "ethers": "^5.7.1"
   },
   "peerDependencies": {
     "@hovoh/ethcall": "^9.9.9",
-    "@hovoh/evmcontractsregistry": "0.3.5",
+    "@hovoh/evmcontractsregistry": "0.3.6",
     "ethers": "^5.7.1"
   }
 }

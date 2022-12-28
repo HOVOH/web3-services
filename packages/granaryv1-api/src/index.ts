@@ -1,10 +1,9 @@
 import {
-  bindings,
   contract,
   ContractFactory,
   Network,
   NetworksContractsRegistry,
-  ProvidersRegistry,
+  IProvidersRegistry,
 } from '@hovoh/evmcontractsregistry';
 import {
   AaveProtocolDataProvider__factory,
@@ -77,44 +76,6 @@ const fantomDeployment = fullDeployment({
   ProtocolDataProvider: '0x3132870d08f736505FF13B19199be17629085072',
 });
 
-/*const fantomDeployment = {
-  LendingPoolAddressesProvider: contract(
-    '0x8b9D58E2Dc5e9b5275b62b1F30b3c0AC87138130',
-    LendingPoolAddressesProvider__factory.connect,
-    LendingPoolAddressesProvider__factory.multicall
-  ),
-  LendingPoolAddressesProviderRegistry: contract(
-    '0x6D77F7a0e9F8EBE1C0FF2d757FC5a411640309ac',
-    LendingPoolAddressesProviderRegistry__factory.connect,
-    LendingPoolAddressesProviderRegistry__factory.multicall
-  ),
-  LendingPool: contract(
-    '0x7220FFD5Dc173BA3717E47033a01d870f06E5284',
-    LendingPool__factory.connect,
-    LendingPool__factory.multicall
-  ),
-  LendingPoolCollateralManager: contract(
-    '0x7DE3D9D91CbD844c862c731d37a96c024BF25dBB',
-    LendingPoolCollateralManager__factory.connect,
-    LendingPoolCollateralManager__factory.multicall
-  ),
-  LendingRateOracle: contract(
-    '0x6914F607bb9F7B42c67DbD0A783A7E3FDFaB237b',
-    LendingRateOracle__factory.connect,
-    LendingRateOracle__factory.multicall
-  ),
-  PriceOracle: contract(
-    '0x49afc876A2Bd130eF135d9D6220BD85D3164B446',
-    PriceOracle__factory.connect,
-    PriceOracle__factory.multicall
-  ),
-  ProtocolDataProvider: contract(
-    '0x3132870d08f736505FF13B19199be17629085072',
-    AaveProtocolDataProvider__factory.connect,
-    AaveProtocolDataProvider__factory.multicall
-  ),
-};*/
-
 const namedFactories = {};
 
 export interface GranaryNetworksContractMap {
@@ -135,7 +96,7 @@ export type GranaryAPI = ContractFactory<
 >;
 export type GranaryNetworks = keyof GranaryNetworksContractMap;
 
-export const initGranaryApi = (providers: ProvidersRegistry): GranaryAPI => {
+export const initGranaryApi = (providers: IProvidersRegistry): GranaryAPI => {
   return new ContractFactory(providers, granaryApi);
 };
 

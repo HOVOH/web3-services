@@ -14,6 +14,7 @@ import {
   LendingRateOracle__factory,
   PriceOracle__factory,
 } from './generated/aave';
+import { IProvidersRegistry } from '@hovoh/evmcontractsregistry/src/IProvidersRegistry';
 
 const namedFactories = {
   LendingPoolAddressesProvider: bindings(
@@ -63,6 +64,6 @@ export type AaveV2API = ContractFactory<
 >;
 export type AaveV2Networks = keyof AaveV2NetworksContractMap;
 
-export const initAaveV2Api = (providers: ProvidersRegistry): AaveV2API => {
+export const initAaveV2Api = (providers: IProvidersRegistry): AaveV2API => {
   return new ContractFactory(providers, aaveV2Api);
 };

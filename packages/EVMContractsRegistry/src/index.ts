@@ -12,11 +12,12 @@ export {
   INetworksContractMap,
 } from './contractRegistry';
 export { Network, NETWORKS_INFO, NetworkName, NetworkConfig } from './Network';
+export { ProvidersRegistry } from './ProvidersRegistry';
 export {
+  IProvidersRegistry,
   IProvider,
   NetworkID,
   INetworksProviders,
-  ProvidersRegistry,
-} from './ProvidersRegistry';
+} from './IProvidersRegistry';
 export { ZERO_ADDRESS } from './constants';
 export * from './helpers';

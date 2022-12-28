@@ -4,7 +4,7 @@ import {
   ContractFactory,
   Network,
   NetworksContractsRegistry,
-  ProvidersRegistry,
+  IProvidersRegistry,
 } from '@hovoh/evmcontractsregistry';
 import {
   AggregatorV3Interface__factory,
@@ -95,7 +95,7 @@ export type ChainlinkApi = ContractFactory<
 export type ChainlinkNetworks = keyof ChainlinkNetworksContractMap;
 
 export const initChainlinkApi = (
-  providers: ProvidersRegistry
+  providers: IProvidersRegistry
 ): ChainlinkApi => {
   return new ContractFactory(providers, chainlinkApi);
 };

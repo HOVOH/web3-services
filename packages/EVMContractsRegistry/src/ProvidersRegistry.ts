@@ -1,18 +1,13 @@
 import { ethers, Wallet } from 'ethers';
 import { IMulticallProvider, initSyncMulticallProvider } from '@hovoh/ethcall';
+import {
+  INetworksProviders,
+  IProvider,
+  IProvidersRegistry,
+  NetworkID,
+} from './IProvidersRegistry';
 
-export interface IProvider {
-  httpRpc: string[];
-  wsRpc: string[];
-}
-
-export type NetworkID = string | number;
-
-export interface INetworksProviders {
-  [networkID: NetworkID]: IProvider;
-}
-
-export class ProvidersRegistry {
+export class ProvidersRegistry implements IProvidersRegistry {
   networks: INetworksProviders;
   private privateKey: string | undefined;
 

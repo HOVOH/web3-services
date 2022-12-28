@@ -1,10 +1,10 @@
 import {
   NetworksContractsRegistry,
   bindings,
-  ProvidersRegistry,
+  IProvidersRegistry,
   ContractFactory,
 } from '@hovoh/evmcontractsregistry';
-import { UniswapV2Pair__factory } from '../generated';
+import { UniswapV2Pair__factory } from './generated';
 
 const namedFactories = {
   Pair: bindings(
@@ -29,8 +29,8 @@ export type UniswapAPI = ContractFactory<
   typeof namedFactories
 >;
 
-export const initUniswapAPI = (providers: ProvidersRegistry): UniswapAPI => {
+export const initUniswapAPI = (providers: IProvidersRegistry): UniswapAPI => {
   return new ContractFactory(providers, uniswapApi);
 };
 
-export * from '../generated';
+export * from './generated';

@@ -1,6 +1,6 @@
 {
   "name": "@hovoh/evmcontractsregistry",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "license": "MIT",
   "author": "HOVOH",
   "main": "dist/index.js",
@@ -18,7 +18,7 @@
     "size": "size-limit",
     "start": "dts watch",
     "test": "dts test",
-    "typechain": "typechain --target node_modules/@hovoh/typechain-ethers-multicall/dist --out-dir ./bindings ./abis/*.json"
+    "typechain": "typechain --target node_modules/@hovoh/typechain-ethers-multicall/dist --out-dir src/generated ./abis/*.json"
   },
   "actions": {
     "trigger": "5"

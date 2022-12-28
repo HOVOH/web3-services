@@ -5,7 +5,6 @@ import {
   INetworksContractMap,
   NetworksContractsRegistry,
 } from './contractRegistry';
-import { NetworkID, ProvidersRegistry } from './ProvidersRegistry';
 import {
   ContractVersions,
   IContractsRegistry,
@@ -13,13 +12,14 @@ import {
 } from './Contract';
 import { Call, initMulticallProvider } from '@hovoh/ethcall';
 import { isAddress } from 'ethers/lib/utils';
+import { IProvidersRegistry, NetworkID } from './IProvidersRegistry';
 
 export class ContractFactory<T extends INetworksContractMap<T>, F> {
-  public readonly providers: ProvidersRegistry;
+  public readonly providers: IProvidersRegistry;
   private contracts: NetworksContractsRegistry<T, F>;
 
   constructor(
-    providersRegistry: ProvidersRegistry,
+    providersRegistry: IProvidersRegistry,
     contractsRegistry: NetworksContractsRegistry<T, F>
   ) {
     this.providers = providersRegistry;

@@ -5,9 +5,9 @@ import {
   NetworksContractsRegistry,
   providers,
 } from '../src';
-import { ERC20__factory, ERC721__factory } from '../bindings';
-import { ERC20 } from '../bindings';
-import { ERC20Multicall } from '../bindings/ERC20';
+import { ERC20__factory, ERC721__factory } from '../src/generated';
+import { ERC20 } from '../src/generated';
+import { ERC20Multicall } from '../src/generated/ERC20';
 
 interface ITestRegistry {
   WFTM: ContractVersions<ERC20, ERC20Multicall>;
