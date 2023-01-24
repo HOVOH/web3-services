@@ -1,10 +1,10 @@
 {
   "name": "@hovoh/evmcontractsregistry",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "license": "MIT",
   "author": "HOVOH",
   "main": "dist/index.js",
-  "module": "dist/evmcontractregistry.esm.js",
+  "module": "dist/evmcontractsregistry.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",

@@ -1,7 +1,7 @@
 import {
   NetworksContractsRegistry,
   bindings,
-  ProvidersRegistry,
+  IProvidersRegistry,
   ContractFactory,
 } from '@hovoh/evmcontractsregistry';
 
@@ -28,7 +28,7 @@ type OpenZeppelinAPI = ContractFactory<
 >;
 
 export const initOpenZeppelinAPI = (
-  providers: ProvidersRegistry
+  providers: IProvidersRegistry
 ): OpenZeppelinAPI => {
   return new ContractFactory(providers, openzeppelinApi);
 };
