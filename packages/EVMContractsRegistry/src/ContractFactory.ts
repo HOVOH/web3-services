@@ -58,7 +58,7 @@ export interface IContractFactory<T extends IContractsRegistry<keyof T>, L> {
         address?: string
       ) => ReturnType<T[K]['multicallFactory']>
     ) => [Call<T1>, Call<T2>]
-  ): Promise<[T1, T2]>;
+  ): Promise<readonly [T1, T2]>;
   multiCall<K extends keyof T, T1, T2, T3>(
     calls: (
       get: (
@@ -66,7 +66,7 @@ export interface IContractFactory<T extends IContractsRegistry<keyof T>, L> {
         address?: string
       ) => ReturnType<T[K]['multicallFactory']>
     ) => [Call<T1>, Call<T2>, Call<T3>]
-  ): Promise<[T1, T2, T3]>;
+  ): Promise<readonly [T1, T2, T3]>;
   multiCall<K extends keyof T, T1, T2, T3, T4>(
     calls: (
       get: (
@@ -74,7 +74,7 @@ export interface IContractFactory<T extends IContractsRegistry<keyof T>, L> {
         address?: string
       ) => ReturnType<T[K]['multicallFactory']>
     ) => [Call<T1>, Call<T2>, Call<T3>, Call<T4>]
-  ): Promise<[T1, T2, T3, T4]>;
+  ): Promise<readonly [T1, T2, T3, T4]>;
   multiCall<K extends keyof T, T1, T2, T3, T4, T5>(
     calls: (
       get: (
@@ -82,7 +82,7 @@ export interface IContractFactory<T extends IContractsRegistry<keyof T>, L> {
         address?: string
       ) => ReturnType<T[K]['multicallFactory']>
     ) => [Call<T1>, Call<T2>, Call<T3>, Call<T4>, Call<T5>]
-  ): Promise<[T1, T2, T3, T4, T5]>;
+  ): Promise<readonly [T1, T2, T3, T4, T5]>;
   multiCall<K extends keyof T, T1, T2, T3, T4, T5, T6>(
     calls: (
       get: (
@@ -90,7 +90,7 @@ export interface IContractFactory<T extends IContractsRegistry<keyof T>, L> {
         address?: string
       ) => ReturnType<T[K]['multicallFactory']>
     ) => [Call<T1>, Call<T2>, Call<T3>, Call<T4>, Call<T5>, Call<T6>]
-  ): Promise<[T1, T2, T3, T4, T5, T6]>;
+  ): Promise<readonly [T1, T2, T3, T4, T5, T6]>;
   multiCall<K extends keyof T, T1, T2, T3, T4, T5, T6, T7>(
     calls: (
       get: (
@@ -98,7 +98,7 @@ export interface IContractFactory<T extends IContractsRegistry<keyof T>, L> {
         address?: string
       ) => ReturnType<T[K]['multicallFactory']>
     ) => [Call<T1>, Call<T2>, Call<T3>, Call<T4>, Call<T5>, Call<T6>, Call<T7>]
-  ): Promise<[T1, T2, T3, T4, T5, T6, T7]>;
+  ): Promise<readonly [T1, T2, T3, T4, T5, T6, T7]>;
   multiCall<K extends keyof T, T1, T2, T3, T4, T5, T6, T7, T8>(
     calls: (
       get: (
@@ -115,7 +115,7 @@ export interface IContractFactory<T extends IContractsRegistry<keyof T>, L> {
       Call<T7>,
       Call<T8>
     ]
-  ): Promise<[T1, T2, T3, T4, T5, T6, T7, T8]>;
+  ): Promise<readonly [T1, T2, T3, T4, T5, T6, T7, T8]>;
   multiCall<K extends keyof T, T1, T2, T3, T4, T5, T6, T7, T8, T9>(
     calls: (
       get: (
@@ -133,7 +133,7 @@ export interface IContractFactory<T extends IContractsRegistry<keyof T>, L> {
       Call<T8>,
       Call<T9>
     ]
-  ): Promise<[T1, T2, T3, T4, T5, T6, T7, T8, T9]>;
+  ): Promise<readonly [T1, T2, T3, T4, T5, T6, T7, T8, T9]>;
 
   multiCall<K extends keyof T, T1>(
     calls: (
@@ -142,7 +142,7 @@ export interface IContractFactory<T extends IContractsRegistry<keyof T>, L> {
         address?: string
       ) => ReturnType<T[K]['multicallFactory']>
     ) => Call<T1>[]
-  ): Promise<T1[]>;
+  ): Promise<readonly T1[]>;
 
   getContractVersions<K extends keyof T>(
     contractName: K

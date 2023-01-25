@@ -28,7 +28,7 @@
   "dependencies": {
     "@hovoh/chainlink-api": "0.1.6",
     "@hovoh/ethcall": "^9.9.9",
-    "@hovoh/evmcontractsregistry": "0.3.7",
+    "@hovoh/evmcontractsregistry": "0.3.8",
     "@hovoh/olympuspro-api": "0.1.2",
     "@hovoh/openzeppelin-api": "0.1.5",
     "@hovoh/traderjoe-api": "0.1.3",
