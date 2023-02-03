@@ -26,13 +26,13 @@
     "cmd": "ts-node ./src/cli.ts"
   },
   "dependencies": {
-    "@hovoh/chainlink-api": "0.1.6",
-    "@hovoh/ethcall": "^9.9.9",
-    "@hovoh/evmcontractsregistry": "0.3.8",
-    "@hovoh/olympuspro-api": "0.1.2",
+    "@hovoh/chainlink-api": "0.1.7",
+    "@hovoh/ethcall": "^9.9.11",
+    "@hovoh/evmcontractsregistry": "0.3.9",
+    "@hovoh/olympuspro-api": "0.1.4",
     "@hovoh/openzeppelin-api": "0.1.5",
     "@hovoh/traderjoe-api": "0.1.3",
-    "@hovoh/uniswapv2-api": "0.1.6",
+    "@hovoh/uniswapv2-api": "0.1.7",
     "@nestjs/common": "^9.0.11",
     "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.11",

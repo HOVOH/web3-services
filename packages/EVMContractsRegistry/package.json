@@ -1,6 +1,6 @@
 {
   "name": "@hovoh/evmcontractsregistry",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "license": "MIT",
   "author": "HOVOH",
   "main": "dist/index.js",
@@ -55,7 +55,7 @@
     "@ethersproject/abstract-provider": "^5.7.0",
     "@ethersproject/bytes": "^5.7.0",
     "@ethersproject/providers": "^5.7.1",
-    "@hovoh/ethcall": "^9.9.9",
+    "@hovoh/ethcall": "^9.9.11",
     "@hovoh/typechain-ethers-multicall": "^10.1.3",
     "@size-limit/preset-small-lib": "^8.1.0",
     "@tsconfig/recommended": "^1.0.1",
@@ -70,7 +70,7 @@
   },
   "peerDependencies": {
     "@ethersproject/abstract-provider": "^5.7.0",
-    "@hovoh/ethcall": "^9.9.9",
+    "@hovoh/ethcall": "^9.9.11",
     "ethers": "^5.7.1"
   }
 }
